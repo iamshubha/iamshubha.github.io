@@ -15,7 +15,9 @@
     - MongoDB
     - MySQL
     - React.js
-  - Golang 
+  - Golang
+    - Gin
+    - gorilla/mux 
   - Docker
   - Java 
   - C/C++ 
