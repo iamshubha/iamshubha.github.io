@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/iamshubha.github.io/static/css/main.83081bae.css",
-    "main.js": "/iamshubha.github.io/static/js/main.82fb729e.js",
-    "static/js/453.91b9555d.chunk.js": "/iamshubha.github.io/static/js/453.91b9555d.chunk.js",
+    "main.js": "/iamshubha.github.io/static/js/main.e5636088.js",
+    "static/js/453.bfe6d20f.chunk.js": "/iamshubha.github.io/static/js/453.bfe6d20f.chunk.js",
     "index.html": "/iamshubha.github.io/index.html",
     "main.83081bae.css.map": "/iamshubha.github.io/static/css/main.83081bae.css.map",
-    "main.82fb729e.js.map": "/iamshubha.github.io/static/js/main.82fb729e.js.map",
-    "453.91b9555d.chunk.js.map": "/iamshubha.github.io/static/js/453.91b9555d.chunk.js.map"
+    "main.e5636088.js.map": "/iamshubha.github.io/static/js/main.e5636088.js.map",
+    "453.bfe6d20f.chunk.js.map": "/iamshubha.github.io/static/js/453.bfe6d20f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.83081bae.css",
-    "static/js/main.82fb729e.js"
+    "static/js/main.e5636088.js"
   ]
 }
