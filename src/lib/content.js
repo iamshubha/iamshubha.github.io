@@ -58,10 +58,46 @@ function parseScalar(value) {
   if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
     const inner = trimmed.slice(1, -1).trim();
 
-    return inner ? inner.split(",").map(parseScalar) : [];
+    return inner ? splitInlineArray(inner).map(parseScalar) : [];
   }
 
   return trimmed;
+}
+
+function splitInlineArray(value) {
+  const items = [];
+  let current = "";
+  let quote = null;
+
+  for (const character of value) {
+    if ((character === '"' || character === "'") && !quote) {
+      quote = character;
+      current += character;
+      continue;
+    }
+
+    if (character === quote) {
+      quote = null;
+      current += character;
+      continue;
+    }
+
+    if (character === "," && !quote) {
+      items.push(current.trim());
+      current = "";
+      continue;
+    }
+
+    current += character;
+  }
+
+  if (quote) {
+    throw new Error("Unsupported frontmatter: unterminated quoted inline array value.");
+  }
+
+  items.push(current.trim());
+
+  return items;
 }
 
 function countIndent(line) {
@@ -83,16 +119,109 @@ function parseObjectLine(value) {
   };
 }
 
-function parseArrayBlock(lines) {
+function assertSupportedLine(line) {
+  if (line.includes("\t")) {
+    throw new Error("Unsupported frontmatter: tabs are not supported for indentation.");
+  }
+}
+
+function parseBlockScalar(lines, startIndex, baseIndent, marker) {
+  const blockIndent = baseIndent + 2;
+  const blockLines = [];
+  let index = startIndex;
+
+  while (index < lines.length) {
+    const line = lines[index];
+    const indent = countIndent(line);
+
+    if (line.trim() && indent <= baseIndent) {
+      break;
+    }
+
+    if (!line.trim()) {
+      blockLines.push("");
+      index += 1;
+      continue;
+    }
+
+    if (indent < blockIndent) {
+      throw new Error("Unsupported frontmatter: block scalar content must be indented.");
+    }
+
+    blockLines.push(line.slice(blockIndent));
+    index += 1;
+  }
+
+  const style = marker[0];
+  const chomp = marker.slice(1);
+
+  if (!["", "-"].includes(chomp)) {
+    throw new Error(`Unsupported frontmatter: block scalar marker "${marker}".`);
+  }
+
+  if (style === "|") {
+    const literal = blockLines.join("\n");
+
+    return {
+      value: chomp === "-" ? literal : `${literal}\n`,
+      nextIndex: index
+    };
+  }
+
+  const foldedValue = blockLines.reduce((result, line) => {
+    if (!line.trim()) {
+      return result.endsWith("\n") ? result : `${result}\n`;
+    }
+
+    if (!result) {
+      return line.trim();
+    }
+
+    return result.endsWith("\n")
+      ? `${result}${line.trim()}`
+      : `${result} ${line.trim()}`;
+  }, "");
+
+  return {
+    value: chomp === "-" ? foldedValue : `${foldedValue}\n`,
+    nextIndex: index
+  };
+}
+
+function collectIndentedBlock(lines, startIndex, parentIndent) {
+  const block = [];
+  let index = startIndex;
+
+  while (index < lines.length) {
+    const line = lines[index];
+
+    if (line.trim() && countIndent(line) <= parentIndent) {
+      break;
+    }
+
+    block.push(line);
+    index += 1;
+  }
+
+  return { block, nextIndex: index };
+}
+
+function parseArrayBlock(lines, indent) {
   const items = [];
 
   for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index];
-    const trimmed = line.trim();
+    assertSupportedLine(line);
 
-    if (!trimmed || !trimmed.startsWith("- ")) {
+    if (!line.trim()) {
       continue;
     }
+
+    if (countIndent(line) !== indent || !line.trimStart().startsWith("- ")) {
+      throw new Error("Unsupported frontmatter: arrays must use consistently indented '- ' items.");
+    }
+
+    const trimmed = line.trim();
 
     const itemSource = trimmed.slice(2);
     const objectLine = parseObjectLine(itemSource);
@@ -105,24 +234,42 @@ function parseArrayBlock(lines) {
     const item = {
       [objectLine.key]: objectLine.value
         ? parseScalar(objectLine.value)
-        : parseFrontmatterLines([])
+        : {}
     };
 
     while (index + 1 < lines.length) {
       const nextLine = lines[index + 1];
+      const nextIndent = countIndent(nextLine);
 
-      if (nextLine.trim().startsWith("- ") || countIndent(nextLine) < 2) {
+      if (!nextLine.trim()) {
+        index += 1;
+        continue;
+      }
+
+      if (nextIndent === indent && nextLine.trimStart().startsWith("- ")) {
         break;
+      }
+
+      if (nextIndent <= indent) {
+        throw new Error("Unsupported frontmatter: nested array object fields must be indented.");
+      }
+
+      if (nextIndent !== indent + 2) {
+        throw new Error("Unsupported frontmatter: nested array object indentation is inconsistent.");
       }
 
       index += 1;
       const nestedLine = parseObjectLine(nextLine.trim());
 
-      if (nestedLine) {
-        item[nestedLine.key] = nestedLine.value
-          ? parseScalar(nestedLine.value)
-          : parseFrontmatterLines([]);
+      if (!nestedLine) {
+        throw new Error("Unsupported frontmatter: nested array object fields must be key/value pairs.");
       }
+
+      if (!nestedLine.value) {
+        throw new Error("Unsupported frontmatter: nested objects inside arrays are not supported.");
+      }
+
+      item[nestedLine.key] = parseScalar(nestedLine.value);
     }
 
     items.push(item);
@@ -131,37 +278,66 @@ function parseArrayBlock(lines) {
   return items;
 }
 
-function parseFrontmatterLines(lines) {
+function parseFrontmatterLines(lines, indent = 0) {
   const data = {};
 
   for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index];
+    assertSupportedLine(line);
 
-    if (!line.trim() || countIndent(line) > 0) {
+    if (!line.trim()) {
       continue;
+    }
+
+    const lineIndent = countIndent(line);
+
+    if (lineIndent !== indent) {
+      throw new Error("Unsupported frontmatter: object fields must use consistent indentation.");
     }
 
     const field = parseObjectLine(line);
 
     if (!field) {
-      continue;
+      throw new Error("Unsupported frontmatter: object fields must be key/value pairs.");
     }
 
     if (field.value) {
+      if (field.value.startsWith("|") || field.value.startsWith(">")) {
+        const { value, nextIndex } = parseBlockScalar(
+          lines,
+          index + 1,
+          indent,
+          field.value
+        );
+
+        data[field.key] = value;
+        index = nextIndex - 1;
+        continue;
+      }
+
       data[field.key] = parseScalar(field.value);
       continue;
     }
 
-    const block = [];
+    const { block, nextIndex } = collectIndentedBlock(lines, index + 1, indent);
 
-    while (index + 1 < lines.length && countIndent(lines[index + 1]) > 0) {
-      index += 1;
-      block.push(lines[index].slice(2));
+    if (!block.length) {
+      data[field.key] = {};
+      continue;
     }
 
-    data[field.key] = block.some((blockLine) => blockLine.trim().startsWith("- "))
-      ? parseArrayBlock(block)
-      : parseFrontmatterLines(block);
+    const blockIndent = indent + 2;
+
+    if (block.some((blockLine) => blockLine.trim() && countIndent(blockLine) < blockIndent)) {
+      throw new Error("Unsupported frontmatter: nested content must be indented.");
+    }
+
+    data[field.key] = block.some(
+      (blockLine) => blockLine.trim() && countIndent(blockLine) === blockIndent && blockLine.trimStart().startsWith("- ")
+    )
+      ? parseArrayBlock(block, blockIndent)
+      : parseFrontmatterLines(block, blockIndent);
+    index = nextIndex - 1;
   }
 
   return data;
@@ -202,11 +378,12 @@ function stripRawHtml(value) {
 
 function isSafeLinkUrl(url) {
   return (
-    url.startsWith("http:") ||
-    url.startsWith("https:") ||
-    url.startsWith("mailto:") ||
-    url.startsWith("/") ||
-    url.startsWith("#")
+    typeof url === "string" &&
+    (url.startsWith("http:") ||
+      url.startsWith("https:") ||
+      url.startsWith("mailto:") ||
+      url.startsWith("/") ||
+      url.startsWith("#"))
   );
 }
 

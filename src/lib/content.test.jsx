@@ -113,6 +113,80 @@ Body content.`
     );
   });
 
+  it("parses folded frontmatter block scalars into a single string", () => {
+    const [entry] = readMarkdownCollection({
+      "../content/projects/folded.md": `---
+slug: folded-entry
+title: Folded Entry
+summary: >
+  Builds governance workflows
+  across teams.
+
+  Keeps audits readable.
+---
+
+Body content.`
+    });
+
+    expect(entry.summary).toBe(
+      "Builds governance workflows across teams.\nKeeps audits readable.\n"
+    );
+  });
+
+  it("parses literal frontmatter block scalars with preserved newlines", () => {
+    const [entry] = readMarkdownCollection({
+      "../content/projects/literal.md": `---
+slug: literal-entry
+title: Literal Entry
+bodyNote: |-
+  First line
+  Second line
+
+  Fourth line
+---
+
+Body content.`
+    });
+
+    expect(entry.bodyNote).toBe("First line\nSecond line\n\nFourth line");
+  });
+
+  it("keeps quoted strings with commas as one frontmatter value", () => {
+    const [entry] = readMarkdownCollection({
+      "../content/projects/quoted.md": `---
+slug: quoted-entry
+title: "Demo, Preview"
+tags: ["Design, Systems", "React"]
+---
+
+Body content.`
+    });
+
+    expect(entry.title).toBe("Demo, Preview");
+    expect(entry.tags).toEqual(["Design, Systems", "React"]);
+  });
+
+  it("parses nested list objects with quoted comma values", () => {
+    const [entry] = readMarkdownCollection({
+      "../content/projects/links.md": `---
+slug: links-entry
+title: Links Entry
+links:
+  - label: "Demo, Preview"
+    url: "https://example.com/demo"
+---
+
+Body content.`
+    });
+
+    expect(entry.links).toEqual([
+      {
+        label: "Demo, Preview",
+        url: "https://example.com/demo"
+      }
+    ]);
+  });
+
   it("reuses parsed markdown collections across content reads", () => {
     const first = getPortfolioContent();
     const second = getPortfolioContent();
