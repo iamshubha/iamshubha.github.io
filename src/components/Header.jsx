@@ -2,7 +2,7 @@ export default function Header({ navItems = [], settings }) {
   return (
     <header className="site-header">
       <a className="site-header__brand" href="#/">
-        {settings.name}
+        {settings.name || "Home"}
       </a>
       <nav className="site-header__nav" aria-label="Primary navigation">
         {navItems.map((item) => (

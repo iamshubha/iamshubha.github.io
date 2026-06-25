@@ -4,8 +4,10 @@ import { afterEach, describe, expect, it } from "vitest";
 import App from "../App.jsx";
 import FeaturedProjects from "../components/FeaturedProjects.jsx";
 import FinalCta from "../components/FinalCta.jsx";
+import Footer from "../components/Footer.jsx";
 import Hero from "../components/Hero.jsx";
 import PreviewRail from "../components/PreviewRail.jsx";
+import SkillMatrix from "../components/SkillMatrix.jsx";
 import { getPortfolioContent } from "../lib/content.js";
 import { getHomeNavItems } from "./HomePage.jsx";
 
@@ -199,6 +201,33 @@ describe("portfolio page routes", () => {
       "mailto:hello@example.com"
     );
     expect(screen.queryByRole("link", { name: "Book a Project Call" })).toBeNull();
+  });
+
+  it("skips skill groups with missing or empty skill arrays", () => {
+    render(
+      <SkillMatrix
+        skills={[
+          { groupName: "Missing Skills", priority: 1 },
+          { groupName: "Empty Skills", priority: 2, skills: [] },
+          { groupName: "Backend", priority: 3, skills: ["Go"] }
+        ]}
+      />
+    );
+
+    expect(screen.getByRole("heading", { name: "Skill Matrix" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Backend" })).toBeTruthy();
+    expect(screen.getByText("Go")).toBeTruthy();
+    expect(screen.queryByRole("heading", { name: "Missing Skills" })).toBeNull();
+    expect(screen.queryByRole("heading", { name: "Empty Skills" })).toBeNull();
+  });
+
+  it("does not render an undefined footer email link", () => {
+    render(<Footer settings={{ name: "Shubha Banerjee", githubUrl: "https://github.com/iamshubha" }} />);
+
+    expect(screen.queryByRole("link", { name: "undefined" })).toBeNull();
+    expect(screen.queryByRole("link", { name: "" })).toBeNull();
+    expect(screen.queryByText("undefined")).toBeNull();
+    expect(screen.getByRole("link", { name: "GitHub" })).toBeTruthy();
   });
 
   it("omits preview metadata markup when an item has no metadata", () => {

@@ -1,5 +1,7 @@
 export default function SkillMatrix({ skills = [] }) {
-  const sortedSkills = [...skills].sort((a, b) => a.priority - b.priority);
+  const sortedSkills = skills
+    .filter((group) => Array.isArray(group.skills) && group.skills.length > 0)
+    .sort((a, b) => a.priority - b.priority);
 
   if (!sortedSkills.length) {
     return null;
