@@ -205,6 +205,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
   min-height: 2.75rem;
   padding: 0.72rem 1rem;
   border: 1px solid var(--ink-strong);
@@ -213,7 +214,9 @@ p {
   color: var(--surface-strong);
   font-weight: 800;
   line-height: 1.1;
+  overflow-wrap: anywhere;
   text-decoration: none;
+  text-align: center;
   transition: transform 180ms var(--ease-out-quart), box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
@@ -538,6 +541,12 @@ li + li {
   color: var(--muted);
 }
 
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+}
+
 .detail-page {
   padding-block: clamp(2rem, 5vw, 5rem);
 }
@@ -668,15 +677,54 @@ li + li {
   .hero h1 {
     font-size: clamp(3.1rem, 18vw, 4.5rem);
   }
+
+  .final-cta__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .final-cta__primary,
+  .final-cta__secondary {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    animation: none !important;
+    animation-delay: 0ms !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition: none !important;
+  }
+
+  .hero__content > *,
+  .hero__proof,
+  .section,
+  .services,
+  .featured-projects,
+  .experience,
+  .skill-matrix,
+  .preview-rail,
+  .testimonials,
+  .public-proof,
+  .about-section,
+  .final-cta,
+  .proof-strip,
+  .button,
+  .hero__cta,
+  .service-card__cta,
+  .final-cta__primary,
+  .final-cta__secondary,
+  .service-card,
+  .project-card,
+  .preview-card,
+  .skill-group,
+  .testimonial,
+  .public-proof__group,
+  .experience__item article {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
