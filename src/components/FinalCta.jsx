@@ -1,14 +1,16 @@
 export default function FinalCta({ settings }) {
   const bookingUrl = settings.scheduling?.bookingUrl || settings.primaryCta.url;
+  const finalCta = settings.finalCta;
+
+  if (!finalCta?.title || !finalCta?.body) {
+    return null;
+  }
 
   return (
     <section className="final-cta" id="contact" aria-labelledby="contact-title">
-      <p className="section-eyebrow">Contact</p>
-      <h2 id="contact-title">Build Production Confidence Into the Backend</h2>
-      <p>
-        For backend, cloud, automation, or AI-aware systems work, start with a focused
-        project call or send the context by email.
-      </p>
+      {finalCta.eyebrow && <p className="section-eyebrow">{finalCta.eyebrow}</p>}
+      <h2 id="contact-title">{finalCta.title}</h2>
+      <p>{finalCta.body}</p>
       <div className="final-cta__actions">
         <a className="final-cta__primary" href={bookingUrl}>
           {settings.primaryCta.label}

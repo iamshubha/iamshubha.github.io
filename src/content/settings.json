@@ -37,6 +37,21 @@
       "label": "backend performance gain"
     }
   ],
+  "about": {
+    "eyebrow": "About",
+    "title": "Working Style",
+    "body": "I am a production-minded backend and cloud engineer who likes clear service boundaries, observable workflows, and systems that can be operated after launch. My work is AI-aware without treating model output as magic, and I am interested in robotics and real-world infrastructure where software has to stay reliable under practical constraints.",
+    "bullets": [
+      "Production-minded backend and cloud engineering",
+      "AI-aware systems with clear review paths",
+      "Interest in robotics and real-world infrastructure"
+    ]
+  },
+  "finalCta": {
+    "eyebrow": "Contact",
+    "title": "Build Production Confidence Into the Backend",
+    "body": "For backend, cloud, automation, or AI-aware systems work, start with a focused project call or send the context by email."
+  },
   "scheduling": {
     "provider": "Cal.com",
     "bookingUrl": "https://cal.com/iamshubha",

@@ -18,17 +18,19 @@ export default function PreviewRail({
       <h2 id={titleId}>{title}</h2>
       {summary && <p>{summary}</p>}
       <div className="preview-rail__items">
-        {items.map((item) => (
-          <article className="preview-card" key={item.slug}>
-            <p className="preview-card__meta">
-              {[item.category, item.status, item.date].filter(Boolean).join(" / ")}
-            </p>
-            <h3>
-              <a href={hrefForItem(item)}>{item.title}</a>
-            </h3>
-            <p>{item.summary}</p>
-          </article>
-        ))}
+        {items.map((item) => {
+          const meta = [item.category, item.status, item.date].filter(Boolean).join(" / ");
+
+          return (
+            <article className="preview-card" key={item.slug}>
+              {meta && <p className="preview-card__meta">{meta}</p>}
+              <h3>
+                <a href={hrefForItem(item)}>{item.title}</a>
+              </h3>
+              <p>{item.summary}</p>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

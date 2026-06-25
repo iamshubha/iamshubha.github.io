@@ -16,6 +16,16 @@ import SkillMatrix from "../components/SkillMatrix.jsx";
 import Testimonials from "../components/Testimonials.jsx";
 import { getPortfolioContent } from "../lib/content.js";
 
+export function getHomeNavItems({ articles, labs, projects, services, settings }) {
+  return [
+    services?.length ? { id: "services", label: "Services" } : null,
+    projects?.some((project) => project.featured) ? { id: "work", label: "Work" } : null,
+    labs?.length ? { id: "labs", label: "Labs" } : null,
+    articles?.length ? { id: "writing", label: "Writing" } : null,
+    settings?.finalCta ? { id: "contact", label: "Contact" } : null
+  ].filter(Boolean);
+}
+
 export default function HomePage() {
   const location = useLocation();
   const content = getPortfolioContent();
@@ -31,6 +41,7 @@ export default function HomePage() {
     speaking,
     testimonials
   } = content;
+  const navItems = getHomeNavItems({ articles, labs, projects, services, settings });
 
   useEffect(() => {
     if (!location.hash) {
@@ -46,7 +57,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Header settings={settings} />
+      <Header navItems={navItems} settings={settings} />
       <main id="main" className="home-page">
         <Hero settings={settings} />
         <ProofStrip metrics={settings.featuredMetrics} />
@@ -72,7 +83,7 @@ export default function HomePage() {
         />
         <Testimonials testimonials={testimonials} />
         <PublicProof certifications={certifications} speaking={speaking} />
-        <AboutSection />
+        <AboutSection about={settings.about} />
         <FinalCta settings={settings} />
       </main>
       <Footer settings={settings} />

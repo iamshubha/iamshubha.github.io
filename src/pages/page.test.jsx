@@ -2,6 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 
 import App from "../App.jsx";
+import PreviewRail from "../components/PreviewRail.jsx";
+import { getPortfolioContent } from "../lib/content.js";
+import { getHomeNavItems } from "./HomePage.jsx";
 
 function renderRoute(hash = "#/") {
   window.location.hash = hash;
@@ -31,6 +34,22 @@ describe("portfolio page routes", () => {
     expect(screen.getByRole("heading", { name: "Labs" })).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Writing" })).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Public Proof" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Working Style" })).toBeTruthy();
+    expect(
+      screen.getByText(
+        "I am a production-minded backend and cloud engineer who likes clear service boundaries, observable workflows, and systems that can be operated after launch. My work is AI-aware without treating model output as magic, and I am interested in robotics and real-world infrastructure where software has to stay reliable under practical constraints."
+      )
+    ).toBeTruthy();
+    expect(
+      screen.getByRole("heading", {
+        name: "Build Production Confidence Into the Backend"
+      })
+    ).toBeTruthy();
+    expect(
+      screen.getByText(
+        "For backend, cloud, automation, or AI-aware systems work, start with a focused project call or send the context by email."
+      )
+    ).toBeTruthy();
     expect(screen.getByRole("link", { name: "Discuss Backend Systems" })).toBeTruthy();
     expect(
       screen
@@ -69,6 +88,16 @@ describe("portfolio page routes", () => {
       expect(document.getElementById(id)).toBeTruthy();
     });
 
+    const navLinks = screen
+      .getAllByRole("link")
+      .filter((link) => Object.hasOwn(sectionTargets, link.textContent));
+
+    navLinks.forEach((link) => {
+      const targetId = link.getAttribute("href").replace("#/#", "");
+
+      expect(document.getElementById(targetId)).toBeTruthy();
+    });
+
     const servicesHref = screen.getByRole("link", { name: "Services" }).getAttribute("href");
 
     unmount();
@@ -77,6 +106,51 @@ describe("portfolio page routes", () => {
     expect(window.location.hash).toBe("#/#services");
     expect(screen.queryByRole("heading", { name: "Page not found" })).toBeNull();
     expect(screen.getByRole("heading", { name: "Services" })).toBeTruthy();
+  });
+
+  it("computes homepage nav from rendered CMS sections", () => {
+    const content = getPortfolioContent();
+
+    expect(getHomeNavItems(content)).toEqual([
+      { id: "services", label: "Services" },
+      { id: "work", label: "Work" },
+      { id: "labs", label: "Labs" },
+      { id: "writing", label: "Writing" },
+      { id: "contact", label: "Contact" }
+    ]);
+
+    expect(
+      getHomeNavItems({
+        ...content,
+        articles: [],
+        labs: [],
+        projects: [],
+        services: []
+      })
+    ).toEqual([{ id: "contact", label: "Contact" }]);
+
+    expect(getHomeNavItems({ ...content, settings: { ...content.settings, finalCta: null } }))
+      .not.toContainEqual({ id: "contact", label: "Contact" });
+  });
+
+  it("omits preview metadata markup when an item has no metadata", () => {
+    const { container } = render(
+      <PreviewRail
+        id="writing"
+        title="Writing"
+        items={[
+          {
+            slug: "metadata-free",
+            title: "Metadata Free",
+            summary: "A preview without category, status, or date."
+          }
+        ]}
+        hrefForItem={(item) => `#/articles/${item.slug}`}
+      />
+    );
+
+    expect(container.querySelector(".preview-card__meta")).toBeNull();
+    expect(screen.getByRole("link", { name: "Metadata Free" })).toBeTruthy();
   });
 
   it("renders a known project slug", () => {
