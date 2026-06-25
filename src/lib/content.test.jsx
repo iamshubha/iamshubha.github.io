@@ -79,6 +79,29 @@ describe("portfolio content", () => {
     expect(html).not.toContain("onerror");
   });
 
+  it("does not render unsafe markdown link protocols", () => {
+    const javascriptHtml = renderMarkdown("[click](javascript:alert(1))");
+    const dataHtml = renderMarkdown("[download](data:text/html;base64,PHNjcmlwdA==)");
+
+    expect(javascriptHtml).not.toContain("<a");
+    expect(javascriptHtml).not.toContain("javascript:");
+    expect(dataHtml).not.toContain("<a");
+    expect(dataHtml).not.toContain("data:");
+  });
+
+  it("renders allowed markdown link protocols", () => {
+    expect(renderMarkdown("[site](https://example.com)")).toContain(
+      '<a href="https://example.com">site</a>'
+    );
+    expect(renderMarkdown("[mail](mailto:test@example.com)")).toContain(
+      '<a href="mailto:test@example.com">mail</a>'
+    );
+    expect(renderMarkdown("[page](/work)")).toContain('<a href="/work">page</a>');
+    expect(renderMarkdown("[section](#top)")).toContain(
+      '<a href="#top">section</a>'
+    );
+  });
+
   it("keeps markdown collection slugs unique", () => {
     const { articles, labs, projects } = getPortfolioContent();
 

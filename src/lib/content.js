@@ -41,8 +41,32 @@ function stripRawHtml(value) {
   return value.replace(/<\/?[A-Za-z][^>\n]*>/g, "");
 }
 
+function isSafeLinkUrl(url) {
+  return (
+    url.startsWith("http:") ||
+    url.startsWith("https:") ||
+    url.startsWith("mailto:") ||
+    url.startsWith("/") ||
+    url.startsWith("#")
+  );
+}
+
 export function renderMarkdown(markdown) {
-  return marked.parse(escapeHtml(stripRawHtml(markdown)));
+  const renderer = new marked.Renderer();
+
+  renderer.link = ({ href, title, tokens }) => {
+    const text = renderer.parser.parseInline(tokens);
+
+    if (!isSafeLinkUrl(href)) {
+      return text;
+    }
+
+    const titleAttribute = title ? ` title="${escapeHtml(title)}"` : "";
+
+    return `<a href="${escapeHtml(href)}"${titleAttribute}>${text}</a>`;
+  };
+
+  return marked.parse(escapeHtml(stripRawHtml(markdown)), { renderer });
 }
 
 export function readMarkdownCollection(modules) {
