@@ -1,7 +1,7 @@
 [
   {
-    "group": "Backend",
-    "items": [
+    "groupName": "Backend",
+    "skills": [
       "Go",
       "Rust",
       "TypeScript",
@@ -11,11 +11,12 @@
       "Redis",
       "PostgreSQL",
       "MongoDB"
-    ]
+    ],
+    "priority": 1
   },
   {
-    "group": "Cloud & Infrastructure",
-    "items": [
+    "groupName": "Cloud & Infrastructure",
+    "skills": [
       "AWS",
       "GCP",
       "Azure",
@@ -24,31 +25,34 @@
       "Kafka",
       "RabbitMQ",
       "S3-compatible storage"
-    ]
+    ],
+    "priority": 2
   },
   {
-    "group": "AI & Automation",
-    "items": [
+    "groupName": "AI & Automation",
+    "skills": [
       "Automation workflows",
       "AI-assisted internal tools",
       "Data pipelines",
       "Backend integration for model outputs",
       "Operational tooling"
-    ]
+    ],
+    "priority": 3
   },
   {
-    "group": "Robotics-Adjacent Systems",
-    "items": [
+    "groupName": "Robotics-Adjacent Systems",
+    "skills": [
       "Telemetry APIs",
       "Event-driven control surfaces",
       "Device data ingestion",
       "Operational dashboards",
       "Real-time status updates"
-    ]
+    ],
+    "priority": 4
   },
   {
-    "group": "Blockchain",
-    "items": [
+    "groupName": "Blockchain",
+    "skills": [
       "Solidity",
       "Smart contracts",
       "Web3.js",
@@ -56,11 +60,12 @@
       "IPFS",
       "Price oracles",
       "Lending pools"
-    ]
+    ],
+    "priority": 5
   },
   {
-    "group": "Security & DevOps",
-    "items": [
+    "groupName": "Security & DevOps",
+    "skills": [
       "Smart contract auditing",
       "GitHub Actions",
       "Jenkins",
@@ -69,6 +74,7 @@
       "SonarQube",
       "Blackduck",
       "Security best practices"
-    ]
+    ],
+    "priority": 6
   }
 ]

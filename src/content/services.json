@@ -32,9 +32,7 @@
       "Production-ready integration patterns",
       "Operational workflows designed for maintainability"
     ],
-    "relatedProjects": [
-      "ai-backend-systems"
-    ]
+    "relatedProjects": []
   },
   {
     "slug": "robotics-ready-systems",
@@ -50,8 +48,6 @@
       "Event-driven backend design",
       "Reliable device-data foundations"
     ],
-    "relatedProjects": [
-      "robotics-control-notes"
-    ]
+    "relatedProjects": []
   }
 ]

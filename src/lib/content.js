@@ -28,6 +28,23 @@ const labModules = import.meta.glob("../content/labs/*.md", {
   eager: true
 });
 
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function stripRawHtml(value) {
+  return value.replace(/<\/?[A-Za-z][^>\n]*>/g, "");
+}
+
+export function renderMarkdown(markdown) {
+  return marked.parse(escapeHtml(stripRawHtml(markdown)));
+}
+
 export function readMarkdownCollection(modules) {
   return Object.entries(modules)
     .map(([path, raw]) => {
@@ -37,7 +54,7 @@ export function readMarkdownCollection(modules) {
         ...data,
         path,
         body: content,
-        html: marked.parse(content)
+        html: renderMarkdown(content)
       };
     })
     .filter((item) => item.draft !== true)
