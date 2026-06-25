@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { findBySlug, getPortfolioContent, renderMarkdown } from "./content";
+import {
+  findBySlug,
+  getPortfolioContent,
+  readMarkdownCollection,
+  renderMarkdown
+} from "./content";
 
 function expectUniqueSlugs(items) {
   const slugs = items.map((item) => item.slug);
@@ -70,6 +75,51 @@ describe("portfolio content", () => {
       "Decentralized Governance Platform"
     );
     expect(findBySlug(projects, "missing-slug")).toBeNull();
+  });
+
+  it("parses markdown frontmatter scalars, arrays, and array objects", () => {
+    const [entry] = readMarkdownCollection({
+      "../content/projects/custom.md": `---
+slug: custom-entry
+title: Custom Entry
+draft: false
+featured: true
+stack:
+  - React
+  - Node
+impactMetrics:
+  - value: 60%
+    label: faster delivery
+  - value: $5M+
+    label: tracked volume
+---
+
+Body content.`
+    });
+
+    expect(entry).toEqual(
+      expect.objectContaining({
+        slug: "custom-entry",
+        title: "Custom Entry",
+        draft: false,
+        featured: true,
+        stack: ["React", "Node"],
+        impactMetrics: [
+          { value: "60%", label: "faster delivery" },
+          { value: "$5M+", label: "tracked volume" }
+        ],
+        body: "Body content."
+      })
+    );
+  });
+
+  it("reuses parsed markdown collections across content reads", () => {
+    const first = getPortfolioContent();
+    const second = getPortfolioContent();
+
+    expect(second.projects).toBe(first.projects);
+    expect(second.articles).toBe(first.articles);
+    expect(second.labs).toBe(first.labs);
   });
 
   it("does not render raw HTML from markdown", () => {
