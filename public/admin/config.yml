@@ -1,0 +1,496 @@
+backend:
+  name: github
+  repo: iamshubha/iamshubha.github.io
+  branch: master
+
+media_folder: public/uploads
+public_folder: /uploads
+
+_shared:
+  stringList: &stringList
+    widget: list
+    field:
+      label: Item
+      name: item
+      widget: string
+  link: &linkFields
+    - label: Label
+      name: label
+      widget: string
+    - label: URL
+      name: url
+      widget: string
+  metric: &metricFields
+    - label: Value
+      name: value
+      widget: string
+    - label: Label
+      name: label
+      widget: string
+
+collections:
+  - name: settings
+    label: Site Settings
+    files:
+      - label: Site Settings
+        name: site_settings
+        file: src/content/settings.json
+        extension: json
+        format: json
+        fields: &settingsFields
+          - label: Name
+            name: name
+            widget: string
+          - label: Role Summary
+            name: roleSummary
+            widget: string
+          - label: Hero Headline
+            name: heroHeadline
+            widget: string
+          - label: Hero Subheadline
+            name: heroSubheadline
+            widget: text
+          - label: Primary CTA
+            name: primaryCta
+            widget: object
+            fields: *linkFields
+          - label: Secondary CTAs
+            name: secondaryCtas
+            widget: list
+            summary: "{{fields.label}}"
+            fields: *linkFields
+          - label: Email
+            name: email
+            widget: string
+          - label: GitHub URL
+            name: githubUrl
+            widget: string
+          - label: LinkedIn URL
+            name: linkedinUrl
+            widget: string
+            required: false
+          - label: SEO Title
+            name: seoTitle
+            widget: string
+          - label: SEO Description
+            name: seoDescription
+            widget: text
+          - label: Theme Color
+            name: themeColor
+            widget: string
+          - label: Featured Metrics
+            name: featuredMetrics
+            widget: list
+            summary: "{{fields.value}} {{fields.label}}"
+            fields: *metricFields
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - label: Eyebrow
+                name: eyebrow
+                widget: string
+              - label: Title
+                name: title
+                widget: string
+              - label: Body
+                name: body
+                widget: text
+              - label: Bullets
+                name: bullets
+                <<: *stringList
+          - label: Final CTA
+            name: finalCta
+            widget: object
+            fields:
+              - label: Eyebrow
+                name: eyebrow
+                widget: string
+              - label: Title
+                name: title
+                widget: string
+              - label: Body
+                name: body
+                widget: text
+          - label: Scheduling
+            name: scheduling
+            widget: object
+            fields:
+              - label: Provider
+                name: provider
+                widget: string
+              - label: Booking URL
+                name: bookingUrl
+                widget: string
+              - label: Embed URL
+                name: embedUrl
+                widget: string
+                required: false
+              - label: Fallback Text
+                name: fallbackText
+                widget: text
+
+  - name: resumes
+    label: Resumes
+    files:
+      - label: Resumes
+        name: resumes
+        file: src/content/resumes.json
+        extension: json
+        format: json
+        fields:
+          - label: Resumes
+            name: ""
+            widget: list
+            summary: "{{fields.variantName}}"
+            fields:
+              - label: Variant Name
+                name: variantName
+                widget: string
+              - label: File URL
+                name: fileUrl
+                widget: file
+                media_folder: /public/uploads
+                public_folder: /uploads
+              - label: Description
+                name: description
+                widget: text
+              - label: Primary Audience
+                name: primaryAudience
+                widget: text
+              - label: Last Updated
+                name: lastUpdated
+                widget: date
+                format: YYYY-MM-DD
+
+  - name: services
+    label: Services
+    files:
+      - label: Services
+        name: services
+        file: src/content/services.json
+        extension: json
+        format: json
+        fields:
+          - label: Services
+            name: ""
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - label: Slug
+                name: slug
+                widget: string
+              - label: Title
+                name: title
+                widget: string
+              - label: Summary
+                name: summary
+                widget: text
+              - label: Capabilities
+                name: capabilities
+                <<: *stringList
+              - label: Proof Points
+                name: proofPoints
+                <<: *stringList
+              - label: CTA
+                name: cta
+                widget: object
+                fields: *linkFields
+              - label: Related Projects
+                name: relatedProjects
+                <<: *stringList
+
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/content/projects
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Context
+        name: context
+        widget: text
+      - label: Role
+        name: role
+        widget: string
+      - label: Stack
+        name: stack
+        <<: *stringList
+      - label: Impact Metrics
+        name: impactMetrics
+        widget: list
+        summary: "{{fields.value}} {{fields.label}}"
+        fields: *metricFields
+      - label: Featured
+        name: featured
+        widget: boolean
+        default: false
+      - label: Date
+        name: date
+        widget: date
+        format: YYYY-MM-DD
+      - label: Body
+        name: body
+        widget: markdown
+
+  - name: experience
+    label: Experience
+    files:
+      - label: Experience
+        name: experience
+        file: src/content/experience.json
+        extension: json
+        format: json
+        fields:
+          - label: Experience
+            name: ""
+            widget: list
+            summary: "{{fields.role}} at {{fields.company}}"
+            fields:
+              - label: Role
+                name: role
+                widget: string
+              - label: Company
+                name: company
+                widget: string
+              - label: Location
+                name: location
+                widget: string
+              - label: Start Date
+                name: startDate
+                widget: string
+              - label: End Date
+                name: endDate
+                widget: string
+                required: false
+              - label: Present
+                name: present
+                widget: boolean
+                default: false
+              - label: Summary
+                name: summary
+                widget: text
+              - label: Highlights
+                name: highlights
+                <<: *stringList
+              - label: Technologies
+                name: technologies
+                <<: *stringList
+              - label: Impact Metrics
+                name: impactMetrics
+                widget: list
+                summary: "{{fields.value}} {{fields.label}}"
+                fields: *metricFields
+
+  - name: skills
+    label: Skills
+    files:
+      - label: Skills
+        name: skills
+        file: src/content/skills.json
+        extension: json
+        format: json
+        fields:
+          - label: Skill Groups
+            name: ""
+            widget: list
+            summary: "{{fields.groupName}}"
+            fields:
+              - label: Group Name
+                name: groupName
+                widget: string
+              - label: Skills
+                name: skills
+                <<: *stringList
+              - label: Priority
+                name: priority
+                widget: number
+                value_type: int
+
+  - name: articles
+    label: Articles
+    label_singular: Article
+    folder: src/content/articles
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Category
+        name: category
+        widget: string
+      - label: Date
+        name: date
+        widget: date
+        format: YYYY-MM-DD
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+      - label: Body
+        name: body
+        widget: markdown
+
+  - name: labs
+    label: Labs
+    label_singular: Lab
+    folder: src/content/labs
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Category
+        name: category
+        widget: string
+      - label: Status
+        name: status
+        widget: string
+      - label: Stack
+        name: stack
+        <<: *stringList
+      - label: Date
+        name: date
+        widget: date
+        format: YYYY-MM-DD
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+      - label: Body
+        name: body
+        widget: markdown
+
+  - name: testimonials
+    label: Testimonials
+    files:
+      - label: Testimonials
+        name: testimonials
+        file: src/content/testimonials.json
+        extension: json
+        format: json
+        fields:
+          - label: Testimonials
+            name: ""
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - label: Name
+                name: name
+                widget: string
+              - label: Role
+                name: role
+                widget: string
+              - label: Quote
+                name: quote
+                widget: text
+
+  - name: certifications
+    label: Certifications
+    files:
+      - label: Certifications
+        name: certifications
+        file: src/content/certifications.json
+        extension: json
+        format: json
+        fields:
+          - label: Certifications
+            name: ""
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - label: Name
+                name: name
+                widget: string
+              - label: Issuer
+                name: issuer
+                widget: string
+              - label: Status
+                name: status
+                widget: string
+              - label: Issue Date
+                name: issueDate
+                widget: date
+                format: YYYY-MM-DD
+                required: false
+              - label: Credential URL
+                name: credentialUrl
+                widget: string
+                required: false
+              - label: Notes
+                name: notes
+                widget: text
+                required: false
+
+  - name: speaking
+    label: Speaking
+    files:
+      - label: Speaking
+        name: speaking
+        file: src/content/speaking.json
+        extension: json
+        format: json
+        fields:
+          - label: Speaking
+            name: ""
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - label: Title
+                name: title
+                widget: string
+              - label: Event
+                name: event
+                widget: string
+              - label: Date
+                name: date
+                widget: date
+                format: YYYY-MM-DD
+                required: false
+              - label: URL
+                name: url
+                widget: string
+                required: false
+              - label: Notes
+                name: notes
+                widget: text
+                required: false
+
+  - name: scheduling
+    label: Scheduling
+    files:
+      - label: Scheduling
+        name: scheduling
+        file: src/content/settings.json
+        extension: json
+        format: json
+        fields: *settingsFields
