@@ -1,6 +1,7 @@
 export default function FinalCta({ settings }) {
-  const bookingUrl = settings.scheduling?.bookingUrl || settings.primaryCta.url;
+  const bookingUrl = settings.scheduling?.bookingUrl || settings.primaryCta?.url;
   const finalCta = settings.finalCta;
+  const primaryLabel = settings.primaryCta?.label || "Book a Project Call";
 
   if (!finalCta?.title || !finalCta?.body) {
     return null;
@@ -12,12 +13,16 @@ export default function FinalCta({ settings }) {
       <h2 id="contact-title">{finalCta.title}</h2>
       <p>{finalCta.body}</p>
       <div className="final-cta__actions">
-        <a className="final-cta__primary" href={bookingUrl}>
-          {settings.primaryCta.label}
-        </a>
-        <a className="final-cta__secondary" href={`mailto:${settings.email}`}>
-          {settings.email}
-        </a>
+        {bookingUrl && (
+          <a className="final-cta__primary" href={bookingUrl}>
+            {primaryLabel}
+          </a>
+        )}
+        {settings.email && (
+          <a className="final-cta__secondary" href={`mailto:${settings.email}`}>
+            {settings.email}
+          </a>
+        )}
       </div>
     </section>
   );

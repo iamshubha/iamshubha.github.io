@@ -2,6 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 
 import App from "../App.jsx";
+import FeaturedProjects from "../components/FeaturedProjects.jsx";
+import FinalCta from "../components/FinalCta.jsx";
+import Hero from "../components/Hero.jsx";
 import PreviewRail from "../components/PreviewRail.jsx";
 import { getPortfolioContent } from "../lib/content.js";
 import { getHomeNavItems } from "./HomePage.jsx";
@@ -129,8 +132,73 @@ describe("portfolio page routes", () => {
       })
     ).toEqual([{ id: "contact", label: "Contact" }]);
 
-    expect(getHomeNavItems({ ...content, settings: { ...content.settings, finalCta: null } }))
-      .not.toContainEqual({ id: "contact", label: "Contact" });
+    expect(
+      getHomeNavItems({
+        ...content,
+        settings: { ...content.settings, finalCta: { title: "Contact", body: "" } }
+      })
+    ).not.toContainEqual({ id: "contact", label: "Contact" });
+  });
+
+  it("renders featured projects with missing facts without throwing", () => {
+    render(
+      <FeaturedProjects
+        projects={[
+          {
+            slug: "partial-project",
+            title: "Partial Project",
+            summary: "A featured project with partial CMS data.",
+            featured: true,
+            impactMetrics: []
+          }
+        ]}
+      />
+    );
+
+    expect(screen.getByRole("link", { name: "Partial Project" })).toBeTruthy();
+    expect(screen.queryByText("Role")).toBeNull();
+    expect(screen.queryByText("Stack")).toBeNull();
+  });
+
+  it("renders hero when CTA arrays are missing or incomplete", () => {
+    render(
+      <Hero
+        settings={{
+          name: "Shubha Banerjee",
+          roleSummary: "Backend and cloud systems engineer",
+          heroHeadline: "Backend Systems for Teams That Need Production Confidence",
+          heroSubheadline: "CMS data can be partial.",
+          primaryCta: { label: "Book a Project Call" },
+          featuredMetrics: []
+        }}
+      />
+    );
+
+    expect(screen.getByRole("heading", { name: "Shubha Banerjee" })).toBeTruthy();
+    expect(screen.queryByRole("link", { name: "Book a Project Call" })).toBeNull();
+  });
+
+  it("renders final CTA email fallback without scheduling or primary CTA URL", () => {
+    render(
+      <FinalCta
+        settings={{
+          email: "hello@example.com",
+          finalCta: {
+            eyebrow: "Contact",
+            title: "Talk Through the Backend",
+            body: "Send the project context by email."
+          }
+        }}
+      />
+    );
+
+    expect(
+      screen.getByRole("heading", { name: "Talk Through the Backend" })
+    ).toBeTruthy();
+    expect(screen.getByRole("link", { name: "hello@example.com" }).getAttribute("href")).toBe(
+      "mailto:hello@example.com"
+    );
+    expect(screen.queryByRole("link", { name: "Book a Project Call" })).toBeNull();
   });
 
   it("omits preview metadata markup when an item has no metadata", () => {

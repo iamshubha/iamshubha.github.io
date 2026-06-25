@@ -22,7 +22,9 @@ export function getHomeNavItems({ articles, labs, projects, services, settings }
     projects?.some((project) => project.featured) ? { id: "work", label: "Work" } : null,
     labs?.length ? { id: "labs", label: "Labs" } : null,
     articles?.length ? { id: "writing", label: "Writing" } : null,
-    settings?.finalCta ? { id: "contact", label: "Contact" } : null
+    settings?.finalCta?.title && settings?.finalCta?.body
+      ? { id: "contact", label: "Contact" }
+      : null
   ].filter(Boolean);
 }
 

@@ -19,6 +19,9 @@ function MetricPanel({ metrics = [] }) {
 }
 
 export default function Hero({ settings }) {
+  const primaryCta = settings.primaryCta;
+  const secondaryCtas = settings.secondaryCtas || [];
+
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__content">
@@ -27,14 +30,18 @@ export default function Hero({ settings }) {
         <h2>{settings.heroHeadline}</h2>
         <p className="hero__summary">{settings.heroSubheadline}</p>
         <div className="hero__ctas" aria-label="Primary actions">
-          <a className="hero__cta hero__cta--primary" href={settings.primaryCta.url}>
-            {settings.primaryCta.label}
-          </a>
-          {settings.secondaryCtas.map((cta) => (
-            <a className="hero__cta hero__cta--secondary" href={cta.url} key={cta.url}>
-              {cta.label}
+          {primaryCta?.label && primaryCta?.url && (
+            <a className="hero__cta hero__cta--primary" href={primaryCta.url}>
+              {primaryCta.label}
             </a>
-          ))}
+          )}
+          {secondaryCtas
+            .filter((cta) => cta.label && cta.url)
+            .map((cta) => (
+              <a className="hero__cta hero__cta--secondary" href={cta.url} key={cta.url}>
+                {cta.label}
+              </a>
+            ))}
         </div>
       </div>
       <MetricPanel metrics={settings.featuredMetrics} />
