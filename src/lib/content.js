@@ -66,6 +66,16 @@ export function renderMarkdown(markdown) {
     return `<a href="${escapeHtml(href)}"${titleAttribute}>${text}</a>`;
   };
 
+  renderer.image = ({ href, title, text }) => {
+    if (!isSafeLinkUrl(href)) {
+      return escapeHtml(text || "");
+    }
+
+    const titleAttribute = title ? ` title="${escapeHtml(title)}"` : "";
+
+    return `<img src="${escapeHtml(href)}" alt="${escapeHtml(text || "")}"${titleAttribute}>`;
+  };
+
   return marked.parse(escapeHtml(stripRawHtml(markdown)), { renderer });
 }
 

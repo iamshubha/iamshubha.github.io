@@ -13,6 +13,10 @@
       "30% efficiency gain",
       "50% deployment reduction"
     ],
+    "cta": {
+      "label": "Discuss Backend Systems",
+      "url": "https://cal.com/iamshubha"
+    },
     "relatedProjects": [
       "governance-platform",
       "defi-protocol"
@@ -32,6 +36,10 @@
       "Production-ready integration patterns",
       "Operational workflows designed for maintainability"
     ],
+    "cta": {
+      "label": "Plan AI Integration",
+      "url": "https://cal.com/iamshubha"
+    },
     "relatedProjects": []
   },
   {
@@ -48,6 +56,10 @@
       "Event-driven backend design",
       "Reliable device-data foundations"
     ],
+    "cta": {
+      "label": "Explore Robotics Systems",
+      "url": "https://cal.com/iamshubha"
+    },
     "relatedProjects": []
   }
 ]

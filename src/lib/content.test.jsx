@@ -102,6 +102,16 @@ describe("portfolio content", () => {
     );
   });
 
+  it("does not render unsafe markdown image protocols", () => {
+    const javascriptHtml = renderMarkdown("![x](javascript:alert(1))");
+    const dataHtml = renderMarkdown("![x](data:text/html;base64,abc)");
+
+    expect(javascriptHtml).not.toContain("<img");
+    expect(javascriptHtml).not.toContain("javascript:");
+    expect(dataHtml).not.toContain("<img");
+    expect(dataHtml).not.toContain("data:");
+  });
+
   it("keeps markdown collection slugs unique", () => {
     const { articles, labs, projects } = getPortfolioContent();
 
@@ -122,6 +132,34 @@ describe("portfolio content", () => {
           role: expect.any(String),
           stack: expect.any(Array),
           impactMetrics: expect.any(Array)
+        })
+      );
+    });
+  });
+
+  it("loads project impact metrics with value and label strings", () => {
+    const { projects } = getPortfolioContent();
+
+    projects.forEach((project) => {
+      project.impactMetrics.forEach((metric) => {
+        expect(metric).toEqual(
+          expect.objectContaining({
+            value: expect.any(String),
+            label: expect.any(String)
+          })
+        );
+      });
+    });
+  });
+
+  it("loads service entries with CTA labels and URLs", () => {
+    const { services } = getPortfolioContent();
+
+    services.forEach((service) => {
+      expect(service.cta).toEqual(
+        expect.objectContaining({
+          label: expect.any(String),
+          url: expect.any(String)
         })
       );
     });
