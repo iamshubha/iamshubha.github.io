@@ -24,6 +24,31 @@ describe("portfolio page routes", () => {
         name: "Backend Systems for Teams That Need Production Confidence"
       })
     ).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Services" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Featured Projects" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Experience Timeline" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Skill Matrix" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Labs" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Writing" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Public Proof" })).toBeTruthy();
+    expect(screen.getByRole("link", { name: "Discuss Backend Systems" })).toBeTruthy();
+    expect(
+      screen
+        .getByRole("link", { name: "Decentralized Governance Platform" })
+        .getAttribute("href")
+    ).toBe("#/projects/governance-platform");
+    expect(
+      screen
+        .getByRole("link", { name: "Robotics Control Backend Notes" })
+        .getAttribute("href")
+    ).toBe("#/labs/robotics-control-notes");
+    expect(
+      screen
+        .getByRole("link", { name: "Production AI Backend Integration" })
+        .getAttribute("href")
+    ).toBe("#/articles/ai-backend-systems");
+    expect(screen.queryByRole("heading", { name: "Testimonials" })).toBeNull();
+    expect(screen.queryByRole("heading", { name: "Speaking & Open Source" })).toBeNull();
   });
 
   it("renders a known project slug", () => {
