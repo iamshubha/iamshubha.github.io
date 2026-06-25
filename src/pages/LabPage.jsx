@@ -32,10 +32,10 @@ export default function LabPage() {
   }
 
   return (
-    <main id="main">
-      <Link to="/">Back home</Link>
+    <main id="main" className="detail-page site-shell">
+      <Link className="button button-secondary" to="/">Back home</Link>
       <article>
-        <p>Lab</p>
+        <p className="eyebrow">Lab</p>
         <h1>{lab.title}</h1>
         <p>{lab.summary}</p>
         <FactList item={lab} />

@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <>
       <Header navItems={navItems} settings={settings} />
-      <main id="main" className="home-page">
+      <main id="main" className="home-page site-shell">
         <Hero settings={settings} />
         <ProofStrip metrics={settings.featuredMetrics} />
         <Services services={services} />

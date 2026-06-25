@@ -40,10 +40,10 @@ export default function ArticlePage() {
   }
 
   return (
-    <main id="main">
-      <Link to="/">Back home</Link>
+    <main id="main" className="detail-page site-shell">
+      <Link className="button button-secondary" to="/">Back home</Link>
       <article>
-        <p>Article</p>
+        <p className="eyebrow">Article</p>
         <h1>{article.title}</h1>
         <p>{article.summary}</p>
         <FactList item={article} />

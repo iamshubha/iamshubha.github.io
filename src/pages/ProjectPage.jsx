@@ -28,10 +28,10 @@ export default function ProjectPage() {
   }
 
   return (
-    <main id="main">
-      <Link to="/">Back home</Link>
+    <main id="main" className="detail-page site-shell">
+      <Link className="button button-secondary" to="/">Back home</Link>
       <article>
-        <p>Case Study</p>
+        <p className="eyebrow">Case Study</p>
         <h1>{project.title}</h1>
         <p>{project.summary}</p>
         <FactList item={project} />
