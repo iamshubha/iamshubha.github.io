@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import AboutSection from "../components/AboutSection.jsx";
 import ExperienceTimeline from "../components/ExperienceTimeline.jsx";
 import FeaturedProjects from "../components/FeaturedProjects.jsx";
@@ -14,6 +17,7 @@ import Testimonials from "../components/Testimonials.jsx";
 import { getPortfolioContent } from "../lib/content.js";
 
 export default function HomePage() {
+  const location = useLocation();
   const content = getPortfolioContent();
   const {
     articles,
@@ -27,6 +31,18 @@ export default function HomePage() {
     speaking,
     testimonials
   } = content;
+
+  useEffect(() => {
+    if (!location.hash) {
+      return;
+    }
+
+    const target = document.getElementById(location.hash.slice(1));
+
+    if (target && typeof target.scrollIntoView === "function") {
+      target.scrollIntoView();
+    }
+  }, [location.hash]);
 
   return (
     <>

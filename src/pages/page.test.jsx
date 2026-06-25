@@ -51,6 +51,34 @@ describe("portfolio page routes", () => {
     expect(screen.queryByRole("heading", { name: "Speaking & Open Source" })).toBeNull();
   });
 
+  it("keeps header section navigation on the home route", () => {
+    const { unmount } = renderRoute("#/");
+
+    const sectionTargets = {
+      Services: "services",
+      Work: "work",
+      Labs: "labs",
+      Writing: "writing",
+      Contact: "contact"
+    };
+
+    Object.entries(sectionTargets).forEach(([label, id]) => {
+      expect(screen.getByRole("link", { name: label }).getAttribute("href")).toBe(
+        `#/#${id}`
+      );
+      expect(document.getElementById(id)).toBeTruthy();
+    });
+
+    const servicesHref = screen.getByRole("link", { name: "Services" }).getAttribute("href");
+
+    unmount();
+    renderRoute(servicesHref);
+
+    expect(window.location.hash).toBe("#/#services");
+    expect(screen.queryByRole("heading", { name: "Page not found" })).toBeNull();
+    expect(screen.getByRole("heading", { name: "Services" })).toBeTruthy();
+  });
+
   it("renders a known project slug", () => {
     renderRoute("#/projects/governance-platform");
 
