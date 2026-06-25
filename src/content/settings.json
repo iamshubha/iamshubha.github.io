@@ -1,0 +1,46 @@
+{
+  "name": "Shubha Banerjee",
+  "roleSummary": "Backend and cloud systems engineer",
+  "heroHeadline": "Backend Systems for Teams That Need Production Confidence",
+  "heroSubheadline": "I build cloud-native APIs, automation workflows, and AI-ready backend systems, with an eye toward robotics and real-world infrastructure.",
+  "primaryCta": {
+    "label": "Book a Project Call",
+    "url": "https://cal.com/iamshubha"
+  },
+  "secondaryCtas": [
+    {
+      "label": "Download Resume",
+      "url": "/resumes/backend.pdf"
+    },
+    {
+      "label": "Contact Me",
+      "url": "mailto:shubhabanerjeewin8@gmail.com"
+    }
+  ],
+  "email": "shubhabanerjeewin8@gmail.com",
+  "githubUrl": "https://github.com/iamshubha",
+  "linkedinUrl": "https://linkedin.com/in/",
+  "seoTitle": "Shubha Banerjee | Backend & Cloud Systems Engineer",
+  "seoDescription": "Backend, cloud, automation, AI-ready systems, and robotics-adjacent engineering by Shubha Banerjee.",
+  "themeColor": "#f4f0e8",
+  "featuredMetrics": [
+    {
+      "value": "50%",
+      "label": "faster deployments"
+    },
+    {
+      "value": "30%",
+      "label": "system efficiency gain"
+    },
+    {
+      "value": "25%",
+      "label": "backend performance gain"
+    }
+  ],
+  "scheduling": {
+    "provider": "Cal.com",
+    "bookingUrl": "https://cal.com/iamshubha",
+    "embedUrl": "",
+    "fallbackText": "Email Shubha if the booking link is unavailable."
+  }
+}

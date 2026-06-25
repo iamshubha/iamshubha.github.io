@@ -1,0 +1,41 @@
+[
+  {
+    "id": "backend",
+    "label": "Backend",
+    "title": "Backend & Cloud Systems Engineer",
+    "summary": "Backend-focused resume for cloud-native APIs, distributed systems, and production platform roles.",
+    "url": "/resumes/backend.pdf",
+    "focusAreas": [
+      "Go and Rust backend services",
+      "Kafka workflows",
+      "Kubernetes deployments",
+      "S3-compatible storage"
+    ]
+  },
+  {
+    "id": "ai",
+    "label": "AI",
+    "title": "AI-Enabled Backend Engineer",
+    "summary": "Resume variant for teams integrating AI-assisted workflows, data pipelines, and model outputs into production systems.",
+    "url": "/resumes/ai.pdf",
+    "focusAreas": [
+      "AI-assisted internal tools",
+      "Automation workflows",
+      "Data pipelines",
+      "Backend integration for model outputs"
+    ]
+  },
+  {
+    "id": "consulting",
+    "label": "Consulting",
+    "title": "Backend Systems Consultant",
+    "summary": "Consulting-oriented resume for project scoping, delivery planning, technical audits, and implementation support.",
+    "url": "/resumes/consulting.pdf",
+    "focusAreas": [
+      "Architecture review",
+      "Delivery planning",
+      "Cloud infrastructure",
+      "Security and DevOps"
+    ]
+  }
+]

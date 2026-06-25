@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "backend-cloud-systems",
+    "title": "Backend & Cloud Systems",
+    "summary": "Production backend systems for teams that need scalable APIs, reliable workflows, and deployment confidence.",
+    "capabilities": [
+      "Go/Rust services",
+      "Kafka workflows",
+      "S3-compatible storage",
+      "Kubernetes deployments"
+    ],
+    "proofPoints": [
+      "30% efficiency gain",
+      "50% deployment reduction"
+    ],
+    "relatedProjects": [
+      "governance-platform",
+      "defi-protocol"
+    ]
+  },
+  {
+    "slug": "ai-enabled-engineering",
+    "title": "AI-Enabled Engineering",
+    "summary": "Backend foundations for AI-assisted products, internal tools, and production automation.",
+    "capabilities": [
+      "Automation workflows",
+      "AI-assisted internal tools",
+      "Data pipelines",
+      "Backend integration for model outputs"
+    ],
+    "proofPoints": [
+      "Production-ready integration patterns",
+      "Operational workflows designed for maintainability"
+    ],
+    "relatedProjects": [
+      "ai-backend-systems"
+    ]
+  },
+  {
+    "slug": "robotics-ready-systems",
+    "title": "Robotics-Ready Systems",
+    "summary": "Backend and cloud systems that support robotics-adjacent telemetry, controls, and operations.",
+    "capabilities": [
+      "Telemetry APIs",
+      "Event-driven control surfaces",
+      "Device data ingestion",
+      "Operational dashboards"
+    ],
+    "proofPoints": [
+      "Event-driven backend design",
+      "Reliable device-data foundations"
+    ],
+    "relatedProjects": [
+      "robotics-control-notes"
+    ]
+  }
+]

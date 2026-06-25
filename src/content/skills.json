@@ -1,0 +1,74 @@
+[
+  {
+    "group": "Backend",
+    "items": [
+      "Go",
+      "Rust",
+      "TypeScript",
+      "GraphQL",
+      "REST APIs",
+      "Gin",
+      "Redis",
+      "PostgreSQL",
+      "MongoDB"
+    ]
+  },
+  {
+    "group": "Cloud & Infrastructure",
+    "items": [
+      "AWS",
+      "GCP",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Kafka",
+      "RabbitMQ",
+      "S3-compatible storage"
+    ]
+  },
+  {
+    "group": "AI & Automation",
+    "items": [
+      "Automation workflows",
+      "AI-assisted internal tools",
+      "Data pipelines",
+      "Backend integration for model outputs",
+      "Operational tooling"
+    ]
+  },
+  {
+    "group": "Robotics-Adjacent Systems",
+    "items": [
+      "Telemetry APIs",
+      "Event-driven control surfaces",
+      "Device data ingestion",
+      "Operational dashboards",
+      "Real-time status updates"
+    ]
+  },
+  {
+    "group": "Blockchain",
+    "items": [
+      "Solidity",
+      "Smart contracts",
+      "Web3.js",
+      "Ethers.js",
+      "IPFS",
+      "Price oracles",
+      "Lending pools"
+    ]
+  },
+  {
+    "group": "Security & DevOps",
+    "items": [
+      "Smart contract auditing",
+      "GitHub Actions",
+      "Jenkins",
+      "Grafana",
+      "Elasticsearch",
+      "SonarQube",
+      "Blackduck",
+      "Security best practices"
+    ]
+  }
+]

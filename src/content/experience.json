@@ -1,0 +1,141 @@
+[
+  {
+    "role": "Senior Consultant - Blockchain & Backend",
+    "company": "Mercedes Benz",
+    "location": "Bangalore",
+    "startDate": "2023-10",
+    "endDate": "",
+    "present": true,
+    "summary": "Backend and blockchain consulting across cloud-native services, storage integrations, CI/CD, and security hardening.",
+    "highlights": [
+      "Developed scalable microservices using Rust, Go and Kafka, improving system efficiency by 30%",
+      "Enhanced S3-compatible storage integration with 30% better data efficiency",
+      "Implemented secure CI/CD pipelines reducing deployment time by 50%",
+      "Optimized backend services with Go and Redis, boosting performance by 25%",
+      "Strengthened security protocols, reducing vulnerabilities by 50%"
+    ],
+    "technologies": [
+      "Rust",
+      "Go",
+      "Kafka",
+      "Redis",
+      "S3-compatible storage",
+      "CI/CD"
+    ],
+    "impactMetrics": [
+      {
+        "value": "30%",
+        "label": "system efficiency improvement"
+      },
+      {
+        "value": "50%",
+        "label": "deployment time reduction"
+      },
+      {
+        "value": "25%",
+        "label": "backend performance boost"
+      }
+    ]
+  },
+  {
+    "role": "Backend Developer",
+    "company": "HDFC Bank",
+    "location": "Bangalore",
+    "startDate": "2022-08",
+    "endDate": "2023-09",
+    "present": false,
+    "summary": "Backend development for banking services with blockchain-based transaction verification, Core Banking API integrations, and Kubernetes delivery.",
+    "highlights": [
+      "Developed blockchain-based Debit Card service improving reliability by 40%",
+      "Integrated Core Banking APIs with external services reducing processing time by 25%",
+      "Implemented smart contracts for transaction verification and fraud prevention",
+      "Deployed services using Kubernetes, reducing deployment times by 50%",
+      "Conducted security audits with SonarCloud, reducing incidents by 30%"
+    ],
+    "technologies": [
+      "Blockchain",
+      "Core Banking APIs",
+      "Smart contracts",
+      "Kubernetes",
+      "SonarCloud"
+    ],
+    "impactMetrics": [
+      {
+        "value": "40%",
+        "label": "reliability improvement"
+      },
+      {
+        "value": "25%",
+        "label": "processing time reduction"
+      },
+      {
+        "value": "50%",
+        "label": "deployment time reduction"
+      }
+    ]
+  },
+  {
+    "role": "Golang Developer",
+    "company": "Logicloop",
+    "location": "Remote",
+    "startDate": "2022-02",
+    "endDate": "2022-08",
+    "present": false,
+    "summary": "Go backend development, authentication systems, observability, and CI/CD automation for distributed services.",
+    "highlights": [
+      "Migrated backend services to Go, improving performance by 60%",
+      "Implemented blockchain-based authentication system",
+      "Set up observability with Grafana, reducing MTTD by 20%",
+      "Automated CI/CD pipelines, increasing deployment frequency by 15%"
+    ],
+    "technologies": [
+      "Go",
+      "Blockchain authentication",
+      "Grafana",
+      "CI/CD"
+    ],
+    "impactMetrics": [
+      {
+        "value": "60%",
+        "label": "backend performance improvement"
+      },
+      {
+        "value": "20%",
+        "label": "MTTD reduction"
+      },
+      {
+        "value": "15%",
+        "label": "deployment frequency increase"
+      }
+    ]
+  },
+  {
+    "role": "Full Stack Developer",
+    "company": "CBNITS",
+    "location": "Kolkata",
+    "startDate": "2021-02",
+    "endDate": "2022-02",
+    "present": false,
+    "summary": "Full stack product development across trading, consulting, REST APIs, GraphQL, Flutter, and smart contract payments.",
+    "highlights": [
+      "Built eZTrade with blockchain integration for secure trading",
+      "Developed eZConsult using Go, GraphQL, and Flutter",
+      "Created REST APIs with Gin framework, reducing response time by 30%",
+      "Implemented smart contract-based payment system"
+    ],
+    "technologies": [
+      "Go",
+      "GraphQL",
+      "Flutter",
+      "Gin",
+      "REST APIs",
+      "Smart contracts"
+    ],
+    "impactMetrics": [
+      {
+        "value": "30%",
+        "label": "response time reduction"
+      }
+    ]
+  }
+]
