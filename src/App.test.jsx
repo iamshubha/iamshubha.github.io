@@ -26,7 +26,7 @@ describe("App", () => {
       "Backend, cloud, automation, AI-ready systems, and robotics-adjacent engineering by Shubha Banerjee.",
     );
     expect(document.querySelector('meta[name="theme-color"]')?.content).toBe(
-      "#f4f0e8",
+      "#0d1117",
     );
   });
 });
