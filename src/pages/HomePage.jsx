@@ -15,6 +15,7 @@ import Services from "../components/Services.jsx";
 import SkillMatrix from "../components/SkillMatrix.jsx";
 import Testimonials from "../components/Testimonials.jsx";
 import { getPortfolioContent } from "../lib/content.js";
+import { prefersReducedMotion } from "../lib/hooks.js";
 
 export function getHomeNavItems({ articles, labs, projects, services, settings }) {
   return [
@@ -56,6 +57,37 @@ export default function HomePage() {
       target.scrollIntoView();
     }
   }, [location.hash]);
+
+  useEffect(() => {
+    const sections = Array.from(
+      document.querySelectorAll(".home-page > section:not(.hero)")
+    );
+
+    if (!sections.length) {
+      return undefined;
+    }
+
+    if (prefersReducedMotion() || typeof IntersectionObserver === "undefined") {
+      sections.forEach((section) => section.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
