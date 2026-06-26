@@ -10,7 +10,7 @@
   "secondaryCtas": [
     {
       "label": "Download Resume",
-      "url": "/resumes/backend.pdf"
+      "url": "/uploads/backend.pdf"
     },
     {
       "label": "Contact Me",

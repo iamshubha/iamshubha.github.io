@@ -2,6 +2,9 @@ backend:
   name: github
   repo: iamshubha/iamshubha.github.io
   branch: master
+  # Production GitHub Pages CMS login requires a deployed Decap OAuth proxy.
+  # Replace this with the proxy origin before production login:
+  # base_url: https://YOUR_DECAP_OAUTH_PROXY.example.com
 
 media_folder: public/uploads
 public_folder: /uploads

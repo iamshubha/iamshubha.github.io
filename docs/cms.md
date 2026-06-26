@@ -8,13 +8,17 @@ Open `/admin` on deployed site.
 
 Authenticate through the configured GitHub-backed Decap CMS backend.
 
-For production, Decap needs a GitHub OAuth app and an OAuth proxy because GitHub does not support direct browser-only OAuth for static GitHub Pages sites. Configure the OAuth app callback URL for the deployed admin route, for example `https://<domain>/admin/` for a custom domain or `https://iamshubha.github.io/admin/` for GitHub Pages. The proxy must be configured with that OAuth app client ID and secret, and Decap must point at the proxy endpoint when the deployment uses one.
+For production on GitHub Pages, Decap needs a GitHub OAuth app and an external OAuth proxy because GitHub does not support direct browser-only OAuth for static sites. The GitHub OAuth app callback URL must point to the deployed OAuth proxy `/callback` endpoint, for example `https://<oauth-proxy-domain>/callback`, not to `/admin/`.
+
+The Decap admin still starts from `/admin` on the portfolio site. From there, Decap authenticates through the OAuth proxy, and the proxy completes the GitHub OAuth callback.
+
+Before production CMS login will work, set `backend.base_url` in `public/admin/config.yml` to the deployed OAuth proxy origin, for example `https://<oauth-proxy-domain>`. Keep the proxy configured with the GitHub OAuth app client ID and secret.
 
 The GitHub identity used in the CMS must have write access to `iamshubha/iamshubha.github.io`. Limit access to trusted editors because CMS saves write commits to the repository.
 
 ## Publishing
 
-Content saves create commits on `master`; deployment publishes the build. Treat `master` as both the GitHub Pages source branch and the Decap CMS commit target unless the site deployment policy changes.
+Content saves create commits on `master`; deployment publishes from that same source/deploy branch target. Treat `master` as both the GitHub Pages source branch and the Decap CMS commit target unless the site deployment policy changes.
 
 Decap edits are regular Git commits. Review them like any other content change, and use the repository history to audit who changed what and when.
 
