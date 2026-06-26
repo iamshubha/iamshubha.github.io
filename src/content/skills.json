@@ -1,80 +1,82 @@
-[
-  {
-    "groupName": "Backend",
-    "skills": [
-      "Go",
-      "Rust",
-      "TypeScript",
-      "GraphQL",
-      "REST APIs",
-      "Gin",
-      "Redis",
-      "PostgreSQL",
-      "MongoDB"
-    ],
-    "priority": 1
-  },
-  {
-    "groupName": "Cloud & Infrastructure",
-    "skills": [
-      "AWS",
-      "GCP",
-      "Azure",
-      "Docker",
-      "Kubernetes",
-      "Kafka",
-      "RabbitMQ",
-      "S3-compatible storage"
-    ],
-    "priority": 2
-  },
-  {
-    "groupName": "AI & Automation",
-    "skills": [
-      "Automation workflows",
-      "AI-assisted internal tools",
-      "Data pipelines",
-      "Backend integration for model outputs",
-      "Operational tooling"
-    ],
-    "priority": 3
-  },
-  {
-    "groupName": "Robotics-Adjacent Systems",
-    "skills": [
-      "Telemetry APIs",
-      "Event-driven control surfaces",
-      "Device data ingestion",
-      "Operational dashboards",
-      "Real-time status updates"
-    ],
-    "priority": 4
-  },
-  {
-    "groupName": "Blockchain",
-    "skills": [
-      "Solidity",
-      "Smart contracts",
-      "Web3.js",
-      "Ethers.js",
-      "IPFS",
-      "Price oracles",
-      "Lending pools"
-    ],
-    "priority": 5
-  },
-  {
-    "groupName": "Security & DevOps",
-    "skills": [
-      "Smart contract auditing",
-      "GitHub Actions",
-      "Jenkins",
-      "Grafana",
-      "Elasticsearch",
-      "SonarQube",
-      "Blackduck",
-      "Security best practices"
-    ],
-    "priority": 6
-  }
-]
+{
+  "items": [
+    {
+      "groupName": "Backend",
+      "skills": [
+        "Go",
+        "Rust",
+        "TypeScript",
+        "GraphQL",
+        "REST APIs",
+        "Gin",
+        "Redis",
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "priority": 1
+    },
+    {
+      "groupName": "Cloud & Infrastructure",
+      "skills": [
+        "AWS",
+        "GCP",
+        "Azure",
+        "Docker",
+        "Kubernetes",
+        "Kafka",
+        "RabbitMQ",
+        "S3-compatible storage"
+      ],
+      "priority": 2
+    },
+    {
+      "groupName": "AI & Automation",
+      "skills": [
+        "Automation workflows",
+        "AI-assisted internal tools",
+        "Data pipelines",
+        "Backend integration for model outputs",
+        "Operational tooling"
+      ],
+      "priority": 3
+    },
+    {
+      "groupName": "Robotics-Adjacent Systems",
+      "skills": [
+        "Telemetry APIs",
+        "Event-driven control surfaces",
+        "Device data ingestion",
+        "Operational dashboards",
+        "Real-time status updates"
+      ],
+      "priority": 4
+    },
+    {
+      "groupName": "Blockchain",
+      "skills": [
+        "Solidity",
+        "Smart contracts",
+        "Web3.js",
+        "Ethers.js",
+        "IPFS",
+        "Price oracles",
+        "Lending pools"
+      ],
+      "priority": 5
+    },
+    {
+      "groupName": "Security & DevOps",
+      "skills": [
+        "Smart contract auditing",
+        "GitHub Actions",
+        "Jenkins",
+        "Grafana",
+        "Elasticsearch",
+        "SonarQube",
+        "Blackduck",
+        "Security best practices"
+      ],
+      "priority": 6
+    }
+  ]
+}

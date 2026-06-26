@@ -19,7 +19,7 @@ _shared:
       widget: string
     - label: URL
       name: url
-      widget: string
+      widget: url
   metric: &metricFields
     - label: Value
       name: value
@@ -64,10 +64,10 @@ collections:
             widget: string
           - label: GitHub URL
             name: githubUrl
-            widget: string
+            widget: url
           - label: LinkedIn URL
             name: linkedinUrl
-            widget: string
+            widget: url
             required: false
           - label: SEO Title
             name: seoTitle
@@ -121,10 +121,10 @@ collections:
                 widget: string
               - label: Booking URL
                 name: bookingUrl
-                widget: string
+                widget: url
               - label: Embed URL
                 name: embedUrl
-                widget: string
+                widget: url
                 required: false
               - label: Fallback Text
                 name: fallbackText
@@ -140,7 +140,7 @@ collections:
         format: json
         fields:
           - label: Resumes
-            name: ""
+            name: items
             widget: list
             summary: "{{fields.variantName}}"
             fields:
@@ -150,8 +150,6 @@ collections:
               - label: File URL
                 name: fileUrl
                 widget: file
-                media_folder: /public/uploads
-                public_folder: /uploads
               - label: Description
                 name: description
                 widget: text
@@ -173,7 +171,7 @@ collections:
         format: json
         fields:
           - label: Services
-            name: ""
+            name: items
             widget: list
             summary: "{{fields.title}}"
             fields:
@@ -254,7 +252,7 @@ collections:
         format: json
         fields:
           - label: Experience
-            name: ""
+            name: items
             widget: list
             summary: "{{fields.role}} at {{fields.company}}"
             fields:
@@ -303,7 +301,7 @@ collections:
         format: json
         fields:
           - label: Skill Groups
-            name: ""
+            name: items
             widget: list
             summary: "{{fields.groupName}}"
             fields:
@@ -400,7 +398,7 @@ collections:
         format: json
         fields:
           - label: Testimonials
-            name: ""
+            name: items
             widget: list
             summary: "{{fields.name}}"
             fields:
@@ -424,7 +422,7 @@ collections:
         format: json
         fields:
           - label: Certifications
-            name: ""
+            name: items
             widget: list
             summary: "{{fields.name}}"
             fields:
@@ -444,7 +442,7 @@ collections:
                 required: false
               - label: Credential URL
                 name: credentialUrl
-                widget: string
+                widget: url
                 required: false
               - label: Notes
                 name: notes
@@ -461,7 +459,7 @@ collections:
         format: json
         fields:
           - label: Speaking
-            name: ""
+            name: items
             widget: list
             summary: "{{fields.title}}"
             fields:
@@ -478,19 +476,9 @@ collections:
                 required: false
               - label: URL
                 name: url
-                widget: string
+                widget: url
                 required: false
               - label: Notes
                 name: notes
                 widget: text
                 required: false
-
-  - name: scheduling
-    label: Scheduling
-    files:
-      - label: Scheduling
-        name: scheduling
-        file: src/content/settings.json
-        extension: json
-        format: json
-        fields: *settingsFields

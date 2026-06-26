@@ -29,6 +29,18 @@ const labModules = import.meta.glob("../content/labs/*.md", {
 
 let cachedMarkdownCollections = null;
 
+function normalizeItemsCollection(collection, label) {
+  if (Array.isArray(collection)) {
+    return collection;
+  }
+
+  if (collection && Array.isArray(collection.items)) {
+    return collection.items;
+  }
+
+  throw new Error(`Invalid ${label} content: expected an items array.`);
+}
+
 function normalizeLineEndings(value) {
   return value.replace(/\r\n?/g, "\n");
 }
@@ -442,13 +454,13 @@ export function getPortfolioContent() {
 
   return {
     settings,
-    resumes,
-    services,
-    experience,
-    skills,
-    testimonials,
-    certifications,
-    speaking,
+    resumes: normalizeItemsCollection(resumes, "resumes"),
+    services: normalizeItemsCollection(services, "services"),
+    experience: normalizeItemsCollection(experience, "experience"),
+    skills: normalizeItemsCollection(skills, "skills"),
+    testimonials: normalizeItemsCollection(testimonials, "testimonials"),
+    certifications: normalizeItemsCollection(certifications, "certifications"),
+    speaking: normalizeItemsCollection(speaking, "speaking"),
     ...cachedMarkdownCollections
   };
 }

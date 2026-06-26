@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
 
+import certificationsSource from "../content/certifications.json";
+import experienceSource from "../content/experience.json";
+import resumesSource from "../content/resumes.json";
+import servicesSource from "../content/services.json";
+import skillsSource from "../content/skills.json";
+import speakingSource from "../content/speaking.json";
+import testimonialsSource from "../content/testimonials.json";
 import {
   findBySlug,
   getPortfolioContent,
@@ -20,11 +27,32 @@ function expectDescendingDates(items) {
   expect(dates).toEqual(sortedDates);
 }
 
+const objectWrappedSources = {
+  certifications: certificationsSource,
+  experience: experienceSource,
+  resumes: resumesSource,
+  services: servicesSource,
+  skills: skillsSource,
+  speaking: speakingSource,
+  testimonials: testimonialsSource
+};
+
 describe("portfolio content", () => {
+  it("stores CMS-managed JSON collections as object-wrapped item lists", () => {
+    Object.values(objectWrappedSources).forEach((source) => {
+      expect(Array.isArray(source)).toBe(false);
+      expect(Array.isArray(source.items)).toBe(true);
+    });
+  });
+
   it("loads required homepage collections", () => {
     const content = getPortfolioContent();
 
     expect(content.settings.name).toBe("Shubha Banerjee");
+    expect(Array.isArray(content.resumes)).toBe(true);
+    expect(Array.isArray(content.services)).toBe(true);
+    expect(Array.isArray(content.experience)).toBe(true);
+    expect(Array.isArray(content.skills)).toBe(true);
     expect(content.resumes.length).toBeGreaterThanOrEqual(3);
     expect(content.services.length).toBeGreaterThanOrEqual(3);
     expect(content.experience.length).toBeGreaterThanOrEqual(4);
@@ -43,7 +71,7 @@ describe("portfolio content", () => {
     expect(resumes[0]).toEqual(
       expect.objectContaining({
         variantName: expect.any(String),
-        fileUrl: expect.any(String),
+        fileUrl: expect.stringMatching(/^\/uploads\/.+\.pdf$/),
         description: expect.any(String),
         primaryAudience: expect.any(String),
         lastUpdated: expect.any(String)

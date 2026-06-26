@@ -1,23 +1,25 @@
-[
-  {
-    "variantName": "Backend",
-    "fileUrl": "/resumes/backend.pdf",
-    "description": "Backend-focused resume for cloud-native APIs, distributed systems, and production platform roles.",
-    "primaryAudience": "Engineering teams hiring for Go, Rust, cloud infrastructure, and backend platform roles.",
-    "lastUpdated": "2026-06-25"
-  },
-  {
-    "variantName": "AI",
-    "fileUrl": "/resumes/ai.pdf",
-    "description": "Resume variant for teams integrating AI-assisted workflows, data pipelines, and model outputs into production systems.",
-    "primaryAudience": "Product and platform teams building AI-enabled internal tools, automation, and backend integrations.",
-    "lastUpdated": "2026-06-25"
-  },
-  {
-    "variantName": "Consulting",
-    "fileUrl": "/resumes/consulting.pdf",
-    "description": "Consulting-oriented resume for project scoping, delivery planning, technical audits, and implementation support.",
-    "primaryAudience": "Founders, technical leaders, and delivery teams looking for backend architecture and implementation support.",
-    "lastUpdated": "2026-06-25"
-  }
-]
+{
+  "items": [
+    {
+      "variantName": "Backend",
+      "fileUrl": "/uploads/backend.pdf",
+      "description": "Backend-focused resume for cloud-native APIs, distributed systems, and production platform roles.",
+      "primaryAudience": "Engineering teams hiring for Go, Rust, cloud infrastructure, and backend platform roles.",
+      "lastUpdated": "2026-06-25"
+    },
+    {
+      "variantName": "AI",
+      "fileUrl": "/uploads/ai.pdf",
+      "description": "Resume variant for teams integrating AI-assisted workflows, data pipelines, and model outputs into production systems.",
+      "primaryAudience": "Product and platform teams building AI-enabled internal tools, automation, and backend integrations.",
+      "lastUpdated": "2026-06-25"
+    },
+    {
+      "variantName": "Consulting",
+      "fileUrl": "/uploads/consulting.pdf",
+      "description": "Consulting-oriented resume for project scoping, delivery planning, technical audits, and implementation support.",
+      "primaryAudience": "Founders, technical leaders, and delivery teams looking for backend architecture and implementation support.",
+      "lastUpdated": "2026-06-25"
+    }
+  ]
+}

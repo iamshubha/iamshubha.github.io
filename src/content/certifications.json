@@ -1,10 +1,12 @@
-[
-  {
-    "name": "AWS Certified Solutions Architect",
-    "issuer": "Amazon Web Services",
-    "status": "Pursuing",
-    "issueDate": "",
-    "credentialUrl": "",
-    "notes": "Certification preparation in progress."
-  }
-]
+{
+  "items": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "status": "Pursuing",
+      "issueDate": "",
+      "credentialUrl": "",
+      "notes": "Certification preparation in progress."
+    }
+  ]
+}
