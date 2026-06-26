@@ -1,6 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 
 import { findBySlug, getPortfolioContent } from "../lib/content.js";
+import {
+  breadcrumbSchema,
+  creativeWorkSchema,
+  useSeo
+} from "../lib/seo.js";
 import NotFoundPage from "./NotFoundPage.jsx";
 
 function formatFactValue(value) {
@@ -32,8 +37,34 @@ function FactList({ item }) {
 
 export default function ArticlePage() {
   const { slug } = useParams();
-  const { articles } = getPortfolioContent();
+  const { articles, settings } = getPortfolioContent();
   const article = findBySlug(articles, slug);
+  const path = `/articles/${slug}`;
+  const dateStr = article ? formatFactValue(article.date) : undefined;
+
+  useSeo(
+    article
+      ? {
+          title: `${article.title} | ${settings.name}`,
+          description: article.summary,
+          path,
+          type: "article",
+          jsonLd: [
+            creativeWorkSchema({
+              type: "TechArticle",
+              title: article.title,
+              description: article.summary,
+              path,
+              date: dateStr
+            }),
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: article.title, path }
+            ])
+          ]
+        }
+      : { title: `Page not found | ${settings.name}`, path, noindex: true }
+  );
 
   if (!article) {
     return <NotFoundPage />;

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { useScrollSpy } from "../lib/hooks.js";
 
@@ -48,17 +49,17 @@ export default function Header({ navItems = [], settings }) {
     <>
       <ScrollProgress />
       <header className="site-header">
-        <a className="site-header__brand" href="#/">
+        <Link className="site-header__brand" to="/">
           <span className="site-header__mark" aria-hidden="true">
             {initials(settings?.name)}
           </span>
           <span className="site-header__name">{settings?.name || "Home"}</span>
-        </a>
+        </Link>
 
         <nav className="site-header__nav" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a
-              href={`#/#${item.id}`}
+              href={`#${item.id}`}
               key={item.id}
               className={activeId === item.id ? "is-active" : undefined}
               aria-current={activeId === item.id ? "true" : undefined}

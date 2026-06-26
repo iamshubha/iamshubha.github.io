@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, expect, it } from "vitest";
 
 import App from "../App.jsx";
@@ -11,18 +12,18 @@ import SkillMatrix from "../components/SkillMatrix.jsx";
 import { getPortfolioContent } from "../lib/content.js";
 import { getHomeNavItems } from "./HomePage.jsx";
 
-function renderRoute(hash = "#/") {
-  window.location.hash = hash;
+function renderRoute(path = "/") {
+  window.history.pushState({}, "", path);
   return render(<App />);
 }
 
 afterEach(() => {
-  window.location.hash = "";
+  window.history.pushState({}, "", "/");
 });
 
 describe("portfolio page routes", () => {
   it("renders the home route with portfolio content", () => {
-    renderRoute("#/");
+    renderRoute("/");
 
     expect(
       screen.getByRole("heading", { name: "Shubha Banerjee" })
@@ -60,23 +61,23 @@ describe("portfolio page routes", () => {
       screen
         .getByRole("link", { name: "Decentralized Governance Platform" })
         .getAttribute("href")
-    ).toBe("#/projects/governance-platform");
+    ).toBe("/projects/governance-platform");
     expect(
       screen
         .getByRole("link", { name: "Robotics Control Backend Notes" })
         .getAttribute("href")
-    ).toBe("#/labs/robotics-control-notes");
+    ).toBe("/labs/robotics-control-notes");
     expect(
       screen
         .getByRole("link", { name: "Production AI Backend Integration" })
         .getAttribute("href")
-    ).toBe("#/articles/ai-backend-systems");
+    ).toBe("/articles/ai-backend-systems");
     expect(screen.queryByRole("heading", { name: "Testimonials" })).toBeNull();
     expect(screen.queryByRole("heading", { name: "Speaking & Open Source" })).toBeNull();
   });
 
   it("keeps header section navigation on the home route", () => {
-    const { unmount } = renderRoute("#/");
+    renderRoute("/");
 
     const sectionTargets = {
       Services: "services",
@@ -88,7 +89,7 @@ describe("portfolio page routes", () => {
 
     Object.entries(sectionTargets).forEach(([label, id]) => {
       expect(screen.getByRole("link", { name: label }).getAttribute("href")).toBe(
-        `#/#${id}`
+        `#${id}`
       );
       expect(document.getElementById(id)).toBeTruthy();
     });
@@ -98,19 +99,19 @@ describe("portfolio page routes", () => {
       .filter((link) => Object.hasOwn(sectionTargets, link.textContent));
 
     navLinks.forEach((link) => {
-      const targetId = link.getAttribute("href").replace("#/#", "");
+      const targetId = link.getAttribute("href").replace("#", "");
 
       expect(document.getElementById(targetId)).toBeTruthy();
     });
+  });
 
-    const servicesHref = screen.getByRole("link", { name: "Services" }).getAttribute("href");
+  it("renders the home route directly at a clean deep link", () => {
+    renderRoute("/projects/governance-platform");
 
-    unmount();
-    renderRoute(servicesHref);
-
-    expect(window.location.hash).toBe("#/#services");
     expect(screen.queryByRole("heading", { name: "Page not found" })).toBeNull();
-    expect(screen.getByRole("heading", { name: "Services" })).toBeTruthy();
+    expect(
+      screen.getByRole("heading", { name: "Decentralized Governance Platform" })
+    ).toBeTruthy();
   });
 
   it("computes homepage nav from rendered CMS sections", () => {
@@ -144,17 +145,19 @@ describe("portfolio page routes", () => {
 
   it("renders featured projects with missing facts without throwing", () => {
     render(
-      <FeaturedProjects
-        projects={[
-          {
-            slug: "partial-project",
-            title: "Partial Project",
-            summary: "A featured project with partial CMS data.",
-            featured: true,
-            impactMetrics: []
-          }
-        ]}
-      />
+      <MemoryRouter>
+        <FeaturedProjects
+          projects={[
+            {
+              slug: "partial-project",
+              title: "Partial Project",
+              summary: "A featured project with partial CMS data.",
+              featured: true,
+              impactMetrics: []
+            }
+          ]}
+        />
+      </MemoryRouter>
     );
 
     expect(screen.getByRole("link", { name: "Partial Project" })).toBeTruthy();
@@ -232,18 +235,20 @@ describe("portfolio page routes", () => {
 
   it("omits preview metadata markup when an item has no metadata", () => {
     const { container } = render(
-      <PreviewRail
-        id="writing"
-        title="Writing"
-        items={[
-          {
-            slug: "metadata-free",
-            title: "Metadata Free",
-            summary: "A preview without category, status, or date."
-          }
-        ]}
-        hrefForItem={(item) => `#/articles/${item.slug}`}
-      />
+      <MemoryRouter>
+        <PreviewRail
+          id="writing"
+          title="Writing"
+          items={[
+            {
+              slug: "metadata-free",
+              title: "Metadata Free",
+              summary: "A preview without category, status, or date."
+            }
+          ]}
+          hrefForItem={(item) => `/articles/${item.slug}`}
+        />
+      </MemoryRouter>
     );
 
     expect(container.querySelector(".preview-card__meta")).toBeNull();
@@ -251,7 +256,7 @@ describe("portfolio page routes", () => {
   });
 
   it("renders a known project slug", () => {
-    renderRoute("#/projects/governance-platform");
+    renderRoute("/projects/governance-platform");
 
     expect(
       screen.getByRole("heading", {
@@ -261,7 +266,7 @@ describe("portfolio page routes", () => {
   });
 
   it("renders a known article slug", () => {
-    renderRoute("#/articles/ai-backend-systems");
+    renderRoute("/articles/ai-backend-systems");
 
     expect(
       screen.getByRole("heading", {
@@ -271,7 +276,7 @@ describe("portfolio page routes", () => {
   });
 
   it("renders a known lab slug", () => {
-    renderRoute("#/labs/robotics-control-notes");
+    renderRoute("/labs/robotics-control-notes");
 
     expect(
       screen.getByRole("heading", {
@@ -281,7 +286,7 @@ describe("portfolio page routes", () => {
   });
 
   it("renders not found for missing routes", () => {
-    renderRoute("#/missing");
+    renderRoute("/missing");
 
     expect(
       screen.getByRole("heading", { name: "Page not found" })
@@ -289,7 +294,7 @@ describe("portfolio page routes", () => {
   });
 
   it("renders not found for missing detail slugs", () => {
-    renderRoute("#/projects/missing-slug");
+    renderRoute("/projects/missing-slug");
 
     expect(
       screen.getByRole("heading", { name: "Page not found" })

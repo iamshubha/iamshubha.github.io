@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function FeaturedProjects({ projects = [] }) {
   const featuredProjects = projects.filter((project) => project.featured);
 
@@ -17,7 +19,7 @@ export default function FeaturedProjects({ projects = [] }) {
           return (
             <article className="project-card" key={project.slug}>
               <h3>
-                <a href={`#/projects/${project.slug}`}>{project.title}</a>
+                <Link to={`/projects/${project.slug}`}>{project.title}</Link>
               </h3>
               <p>{project.summary}</p>
               {hasFacts && (

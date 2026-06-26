@@ -1,6 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 
 import { findBySlug, getPortfolioContent } from "../lib/content.js";
+import {
+  breadcrumbSchema,
+  creativeWorkSchema,
+  useSeo
+} from "../lib/seo.js";
 import NotFoundPage from "./NotFoundPage.jsx";
 
 function FactList({ item }) {
@@ -20,8 +25,33 @@ function FactList({ item }) {
 
 export default function ProjectPage() {
   const { slug } = useParams();
-  const { projects } = getPortfolioContent();
+  const { projects, settings } = getPortfolioContent();
   const project = findBySlug(projects, slug);
+  const path = `/projects/${slug}`;
+
+  useSeo(
+    project
+      ? {
+          title: `${project.title} | ${settings.name}`,
+          description: project.summary,
+          path,
+          type: "article",
+          jsonLd: [
+            creativeWorkSchema({
+              type: "CreativeWork",
+              title: project.title,
+              description: project.summary,
+              path,
+              date: project.date
+            }),
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: project.title, path }
+            ])
+          ]
+        }
+      : { title: `Page not found | ${settings.name}`, path, noindex: true }
+  );
 
   if (!project) {
     return <NotFoundPage />;

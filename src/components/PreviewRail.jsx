@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function PreviewRail({
   eyebrow,
   hrefForItem,
@@ -25,7 +27,7 @@ export default function PreviewRail({
             <article className="preview-card" key={item.slug}>
               {meta && <p className="preview-card__meta">{meta}</p>}
               <h3>
-                <a href={hrefForItem(item)}>{item.title}</a>
+                <Link to={hrefForItem(item)}>{item.title}</Link>
               </h3>
               <p>{item.summary}</p>
             </article>

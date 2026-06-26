@@ -16,6 +16,7 @@ import SkillMatrix from "../components/SkillMatrix.jsx";
 import Testimonials from "../components/Testimonials.jsx";
 import { getPortfolioContent } from "../lib/content.js";
 import { prefersReducedMotion } from "../lib/hooks.js";
+import { personSchema, useSeo, websiteSchema } from "../lib/seo.js";
 
 export function getHomeNavItems({ articles, labs, projects, services, settings }) {
   return [
@@ -45,6 +46,14 @@ export default function HomePage() {
     testimonials
   } = content;
   const navItems = getHomeNavItems({ articles, labs, projects, services, settings });
+
+  useSeo({
+    title: settings.seoTitle,
+    description: settings.seoDescription,
+    path: "/",
+    type: "website",
+    jsonLd: [personSchema({ skills }), websiteSchema()]
+  });
 
   useEffect(() => {
     if (!location.hash) {
@@ -105,7 +114,7 @@ export default function HomePage() {
           title="Labs"
           summary="Current notes and experiments around backend systems, automation, and robotics-ready infrastructure."
           items={labs}
-          hrefForItem={(item) => `#/labs/${item.slug}`}
+          hrefForItem={(item) => `/labs/${item.slug}`}
         />
         <PreviewRail
           id="writing"
@@ -113,7 +122,7 @@ export default function HomePage() {
           title="Writing"
           summary="Practical writing on production backend engineering, AI-aware systems, and operational tradeoffs."
           items={articles}
-          hrefForItem={(item) => `#/articles/${item.slug}`}
+          hrefForItem={(item) => `/articles/${item.slug}`}
         />
         <Testimonials testimonials={testimonials} />
         <PublicProof certifications={certifications} speaking={speaking} />
