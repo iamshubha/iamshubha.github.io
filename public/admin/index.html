@@ -5,8 +5,92 @@
     <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Content Admin</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      #cms-loading {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        gap: 1.25rem;
+        justify-items: center;
+        background: #0d1117;
+        color: #e6edf3;
+        font-family: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+        text-align: center;
+      }
+      #cms-loading .mark {
+        display: grid;
+        place-items: center;
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 12px;
+        background: linear-gradient(140deg, #4fd6c8, #9a7bff);
+        color: #0d1117;
+        font-weight: 800;
+        font-size: 1.1rem;
+      }
+      #cms-loading h1 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+      #cms-loading p {
+        margin: 0;
+        max-width: 28ch;
+        color: #9fb0c0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      #cms-loading .spinner {
+        width: 1.6rem;
+        height: 1.6rem;
+        border: 3px solid rgba(255, 255, 255, 0.15);
+        border-top-color: #4fd6c8;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="cms-loading">
+      <span class="mark">SB</span>
+      <h1>Content Studio</h1>
+      <p>Loading your portfolio editor. Sign in to manage projects, articles, testimonials, and site settings.</p>
+      <div class="spinner" role="status" aria-label="Loading"></div>
+    </div>
     <script src="https://unpkg.com/decap-cms@3.8.3/dist/decap-cms.js"></script>
+    <script>
+      // Hide the loading screen once Decap mounts its UI (or after a timeout).
+      window.addEventListener("load", function () {
+        var tries = 0;
+        var timer = setInterval(function () {
+          tries += 1;
+          var mounted =
+            document.getElementById("nc-root") ||
+            document.querySelector("[class*='AppRoot']") ||
+            document.querySelector("[class*='Root']");
+          if (mounted || tries > 40) {
+            var loader = document.getElementById("cms-loading");
+            if (loader) {
+              loader.style.display = "none";
+            }
+            clearInterval(timer);
+          }
+        }, 250);
+      });
+    </script>
   </body>
 </html>

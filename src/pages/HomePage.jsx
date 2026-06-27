@@ -47,6 +47,14 @@ export default function HomePage() {
   } = content;
   const navItems = getHomeNavItems({ articles, labs, projects, services, settings });
 
+  const companies = experience.map((role) => role.company).filter(Boolean);
+  const startYears = experience
+    .map((role) => Number.parseInt(String(role.startDate).slice(0, 4), 10))
+    .filter((year) => Number.isFinite(year));
+  const earliestYear = startYears.length ? Math.min(...startYears) : null;
+  const years = earliestYear ? new Date().getFullYear() - earliestYear : null;
+  const profile = { years, companies };
+
   useSeo({
     title: settings.seoTitle,
     description: settings.seoDescription,
@@ -102,7 +110,7 @@ export default function HomePage() {
     <>
       <Header navItems={navItems} settings={settings} />
       <main id="main" className="home-page site-shell">
-        <Hero settings={settings} />
+        <Hero settings={settings} profile={profile} />
         <ProofStrip metrics={settings.featuredMetrics} />
         <Services services={services} />
         <FeaturedProjects projects={projects} />

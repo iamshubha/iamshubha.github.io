@@ -1,7 +1,5 @@
 import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 
-import CountUp from "./CountUp.jsx";
-
 function ctaIcon(url = "") {
   if (url.startsWith("mailto:")) {
     return Mail;
@@ -46,39 +44,40 @@ function SocialLinks({ settings }) {
   );
 }
 
-function TerminalCard({ metrics = [] }) {
-  if (!metrics.length) {
+function ProfileCard({ profile }) {
+  const years = profile?.years;
+  const companies = profile?.companies || [];
+
+  if (!years && !companies.length) {
     return null;
   }
 
   return (
-    <aside className="hero__terminal" aria-label="Selected impact metrics">
-      <div className="hero__terminal-bar" aria-hidden="true">
-        <span className="hero__terminal-dot" />
-        <span className="hero__terminal-dot" />
-        <span className="hero__terminal-dot" />
-        <span className="hero__terminal-title">impact.sh</span>
-      </div>
-      <div className="hero__terminal-body">
-        <p className="hero__terminal-cmd" aria-hidden="true">
-          <span className="hero__terminal-prompt">$</span> measure --production
-        </p>
-        <dl>
-          {metrics.map((metric) => (
-            <div key={`${metric.value}-${metric.label}`}>
-              <dd>
-                <CountUp value={metric.value} />
-              </dd>
-              <dt>{metric.label}</dt>
-            </div>
-          ))}
-        </dl>
-      </div>
+    <aside className="hero__card" aria-label="Experience at a glance">
+      {years ? (
+        <div className="hero__card-highlight">
+          <span className="hero__card-number">{years}+</span>
+          <span className="hero__card-number-label">
+            years building production backend &amp; cloud systems
+          </span>
+        </div>
+      ) : null}
+
+      {companies.length ? (
+        <div className="hero__card-block">
+          <p className="hero__card-label">Trusted with work for</p>
+          <ul className="hero__card-companies">
+            {companies.map((company) => (
+              <li key={company}>{company}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </aside>
   );
 }
 
-export default function Hero({ settings }) {
+export default function Hero({ settings, profile }) {
   const primaryCta = settings.primaryCta;
   const secondaryCtas = settings.secondaryCtas || [];
 
@@ -117,7 +116,7 @@ export default function Hero({ settings }) {
         </div>
         <SocialLinks settings={settings} />
       </div>
-      <TerminalCard metrics={settings.featuredMetrics} />
+      <ProfileCard profile={profile} />
     </section>
   );
 }

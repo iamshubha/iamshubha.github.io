@@ -24,6 +24,10 @@ auth:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 site_url: https://iamshubha.github.io
 
+# Enables editing locally with `npx decap-server` (only active on localhost;
+# production continues to use the configured backend above).
+local_backend: true
+
 media_folder: public/uploads
 public_folder: /uploads
 
@@ -421,17 +425,30 @@ collections:
           - label: Testimonials
             name: items
             widget: list
-            summary: "{{fields.name}}"
+            summary: "{{fields.name}} - {{fields.company}}"
+            label_singular: Testimonial
             fields:
               - label: Name
                 name: name
                 widget: string
+                hint: Person who gave the review (e.g. your manager or team lead).
               - label: Role
                 name: role
                 widget: string
+                hint: Their job title (e.g. Engineering Manager).
+              - label: Company
+                name: company
+                widget: string
+                hint: Where they worked with you (e.g. Mercedes-Benz).
               - label: Quote
                 name: quote
                 widget: text
+                hint: The review in their words.
+              - label: LinkedIn URL
+                name: linkedinUrl
+                widget: url
+                required: false
+                hint: Optional link to the recommendation or their profile.
 
   - name: certifications
     label: Certifications
