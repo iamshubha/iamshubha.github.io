@@ -1,11 +1,11 @@
 {
   "name": "Shubha Banerjee",
-  "roleSummary": "Backend and cloud systems engineer",
-  "heroHeadline": "Backend Systems for Teams That Need Production Confidence",
-  "heroSubheadline": "I build cloud-native APIs, automation workflows, and AI-ready backend systems, with an eye toward robotics and real-world infrastructure.",
+  "roleSummary": "Senior Backend Engineer | Golang",
+  "heroHeadline": "Large-scale backend systems, event platforms, and secure cloud-native infrastructure.",
+  "heroSubheadline": "I design and build production Go services, microservice architectures, event-driven platforms, Kubernetes delivery systems, and security-aware backend infrastructure for teams operating at scale.",
   "primaryCta": {
-    "label": "Book a Project Call",
-    "url": "https://cal.com/iamshubha"
+    "label": "Contact Shubha",
+    "url": "mailto:shubhabanerjeewin8@gmail.com"
   },
   "secondaryCtas": [
     {
@@ -13,49 +13,50 @@
       "url": "/uploads/backend.pdf"
     },
     {
-      "label": "Contact Me",
-      "url": "mailto:shubhabanerjeewin8@gmail.com"
+      "label": "GitHub",
+      "url": "https://github.com/iamshubha"
     }
   ],
   "email": "shubhabanerjeewin8@gmail.com",
   "githubUrl": "https://github.com/iamshubha",
-  "linkedinUrl": "https://linkedin.com/in/",
-  "seoTitle": "Shubha Banerjee | Backend & Cloud Systems Engineer",
-  "seoDescription": "Backend, cloud, automation, AI-ready systems, and robotics-adjacent engineering by Shubha Banerjee.",
-  "themeColor": "#0d1117",
+  "linkedinUrl": "https://www.linkedin.com/in/shubha-banerjee/",
+  "seoTitle": "Shubha Banerjee | Senior Backend Engineer | Golang",
+  "seoDescription": "Senior Backend Engineer with 6+ years of experience in Golang, microservices, Kafka, Redis, Kubernetes, Terraform, PostgreSQL, cloud infrastructure, and secure backend systems.",
+  "themeColor": "#201f1d",
   "featuredMetrics": [
     {
-      "value": "50%",
-      "label": "faster deployments"
+      "value": "6+",
+      "label": "years backend engineering"
+    },
+    {
+      "value": "8",
+      "label": "engineers led"
     },
     {
       "value": "30%",
-      "label": "system efficiency gain"
-    },
-    {
-      "value": "25%",
-      "label": "backend performance gain"
+      "label": "security incident reduction"
     }
   ],
   "about": {
     "eyebrow": "About",
-    "title": "Working Style",
-    "body": "I am a production-minded backend and cloud engineer who likes clear service boundaries, observable workflows, and systems that can be operated after launch. My work is AI-aware without treating model output as magic, and I am interested in robotics and real-world infrastructure where software has to stay reliable under practical constraints.",
+    "title": "Backend engineer focused on scale, reliability, and secure delivery.",
+    "body": "I am a Senior Backend Engineer based in Kolkata and Bangalore with 6+ years of experience building microservices, event-driven platforms, cloud-native applications, and production CI/CD systems. My strongest work is in Golang, Kafka, Redis, Kubernetes, Docker, Terraform, PostgreSQL, gRPC, and secure backend architecture. I like systems that are observable, maintainable, and ready for real operational pressure.",
     "bullets": [
-      "Production-minded backend and cloud engineering",
-      "AI-aware systems with clear review paths",
-      "Interest in robotics and real-world infrastructure"
+      "Large-scale Go services, microservices, and distributed backend platforms",
+      "Kafka, Google Pub/Sub, Azure Service Bus, Redis, PostgreSQL, and gRPC",
+      "Kubernetes, Docker, Terraform, GitHub Actions, BlackDuck, SonarQube, and secure delivery practices",
+      "Strong interest in cybersecurity, networking, reliability, observability, and robotics-ready infrastructure"
     ]
   },
   "finalCta": {
     "eyebrow": "Contact",
-    "title": "Build Production Confidence Into the Backend",
-    "body": "For backend, cloud, automation, or AI-aware systems work, start with a focused project call or send the context by email."
+    "title": "Need a backend engineer for production-scale systems?",
+    "body": "Reach out for Golang backend engineering, cloud-native services, event-driven platforms, infrastructure automation, or security-aware delivery work."
   },
   "scheduling": {
-    "provider": "Cal.com",
-    "bookingUrl": "https://cal.com/iamshubha",
+    "provider": "Email",
+    "bookingUrl": "mailto:shubhabanerjeewin8@gmail.com",
     "embedUrl": "",
-    "fallbackText": "Email Shubha if the booking link is unavailable."
+    "fallbackText": "Email Shubha at shubhabanerjeewin8@gmail.com."
   }
 }

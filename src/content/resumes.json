@@ -1,25 +1,25 @@
 {
   "items": [
     {
-      "variantName": "Backend",
+      "variantName": "Senior Backend Engineer",
       "fileUrl": "/uploads/backend.pdf",
-      "description": "Backend-focused resume for cloud-native APIs, distributed systems, and production platform roles.",
-      "primaryAudience": "Engineering teams hiring for Go, Rust, cloud infrastructure, and backend platform roles.",
-      "lastUpdated": "2026-06-25"
+      "description": "Resume for Senior Backend Engineer and Golang roles focused on distributed systems, microservices, event platforms, cloud infrastructure, and secure delivery.",
+      "primaryAudience": "Engineering teams hiring for Golang, backend platform, cloud-native services, distributed systems, and infrastructure automation roles.",
+      "lastUpdated": "2026-06-30"
     },
     {
-      "variantName": "AI",
+      "variantName": "Cloud & DevOps Backend",
       "fileUrl": "/uploads/ai.pdf",
-      "description": "Resume variant for teams integrating AI-assisted workflows, data pipelines, and model outputs into production systems.",
-      "primaryAudience": "Product and platform teams building AI-enabled internal tools, automation, and backend integrations.",
-      "lastUpdated": "2026-06-25"
+      "description": "Same current resume, useful for roles involving Kubernetes, Terraform, CI/CD, vulnerability scanning, compliance, and production cloud delivery.",
+      "primaryAudience": "Platform, DevOps, cloud infrastructure, and secure delivery teams.",
+      "lastUpdated": "2026-06-30"
     },
     {
-      "variantName": "Consulting",
+      "variantName": "Security-Aware Backend",
       "fileUrl": "/uploads/consulting.pdf",
-      "description": "Consulting-oriented resume for project scoping, delivery planning, technical audits, and implementation support.",
-      "primaryAudience": "Founders, technical leaders, and delivery teams looking for backend architecture and implementation support.",
-      "lastUpdated": "2026-06-25"
+      "description": "Same current resume, highlighting security audits, vulnerability reviews, BlackDuck, SonarQube, compliance remediation, and reliable backend systems.",
+      "primaryAudience": "Teams building security-aware backend systems, banking platforms, compliance workflows, and critical infrastructure services.",
+      "lastUpdated": "2026-06-30"
     }
   ]
 }

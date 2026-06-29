@@ -20,13 +20,13 @@ describe("App", () => {
     render(<App />);
 
     expect(document.title).toBe(
-      "Shubha Banerjee | Backend & Cloud Systems Engineer",
+      "Shubha Banerjee | Senior Backend Engineer | Golang",
     );
     expect(document.querySelector('meta[name="description"]')?.content).toBe(
-      "Backend, cloud, automation, AI-ready systems, and robotics-adjacent engineering by Shubha Banerjee.",
+      "Senior Backend Engineer with 6+ years of experience in Golang, microservices, Kafka, Redis, Kubernetes, Terraform, PostgreSQL, cloud infrastructure, and secure backend systems.",
     );
     expect(document.querySelector('meta[name="theme-color"]')?.content).toBe(
-      "#0d1117",
+      "#201f1d",
     );
   });
 });

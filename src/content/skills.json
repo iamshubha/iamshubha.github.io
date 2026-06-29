@@ -1,80 +1,82 @@
 {
   "items": [
     {
-      "groupName": "Backend",
+      "groupName": "Languages & Backend",
       "skills": [
-        "Go",
-        "Rust",
+        "Golang",
         "TypeScript",
-        "GraphQL",
-        "REST APIs",
+        "Rust",
+        "Dart",
+        "Node.js",
         "Gin",
-        "Redis",
-        "PostgreSQL",
-        "MongoDB"
+        "gRPC",
+        "REST APIs",
+        "Microservices"
       ],
       "priority": 1
     },
     {
-      "groupName": "Cloud & Infrastructure",
+      "groupName": "Databases & Storage",
       "skills": [
-        "AWS",
-        "GCP",
-        "Azure",
-        "Docker",
-        "Kubernetes",
-        "Kafka",
-        "RabbitMQ",
-        "S3-compatible storage"
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Aerospike",
+        "Firebase",
+        "S3-compatible storage",
+        "MeiliSearch"
       ],
       "priority": 2
     },
     {
-      "groupName": "AI & Automation",
+      "groupName": "Messaging & Event Systems",
       "skills": [
-        "Automation workflows",
-        "AI-assisted internal tools",
-        "Data pipelines",
-        "Backend integration for model outputs",
-        "Operational tooling"
+        "Apache Kafka",
+        "Google Pub/Sub",
+        "Azure Service Bus",
+        "Event-driven architecture",
+        "Message routing",
+        "Real-time event processing"
       ],
       "priority": 3
     },
     {
-      "groupName": "Robotics-Adjacent Systems",
+      "groupName": "Cloud & Infrastructure",
       "skills": [
-        "Telemetry APIs",
-        "Event-driven control surfaces",
-        "Device data ingestion",
-        "Operational dashboards",
-        "Real-time status updates"
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "GitHub Actions",
+        "AWS",
+        "GCP",
+        "Azure",
+        "CI/CD"
       ],
       "priority": 4
     },
     {
-      "groupName": "Blockchain",
+      "groupName": "Security & Compliance",
       "skills": [
-        "Solidity",
-        "Smart contracts",
-        "Web3.js",
-        "Ethers.js",
-        "IPFS",
-        "Price oracles",
-        "Lending pools"
+        "Secure coding",
+        "Vulnerability scanning",
+        "BlackDuck",
+        "SonarQube",
+        "Compliance remediation",
+        "Security audits",
+        "Infrastructure security"
       ],
       "priority": 5
     },
     {
-      "groupName": "Security & DevOps",
+      "groupName": "Operations & Interests",
       "skills": [
-        "Smart contract auditing",
-        "GitHub Actions",
-        "Jenkins",
+        "Observability",
         "Grafana",
-        "Elasticsearch",
-        "SonarQube",
-        "Blackduck",
-        "Security best practices"
+        "Reliability engineering",
+        "Networking",
+        "Cybersecurity",
+        "Large-scale distributed architecture",
+        "Robotics-ready infrastructure"
       ],
       "priority": 6
     }

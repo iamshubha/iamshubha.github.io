@@ -30,7 +30,7 @@ describe("portfolio page routes", () => {
     ).toBeTruthy();
     expect(
       screen.getByRole("heading", {
-        name: "Backend Systems for Teams That Need Production Confidence"
+        name: "Large-scale backend systems, event platforms, and secure cloud-native infrastructure."
       })
     ).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Services" })).toBeTruthy();
@@ -40,38 +40,42 @@ describe("portfolio page routes", () => {
     expect(screen.getByRole("heading", { name: "Labs" })).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Writing" })).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Public Proof" })).toBeTruthy();
-    expect(screen.getByRole("heading", { name: "Working Style" })).toBeTruthy();
-    expect(
-      screen.getByText(
-        "I am a production-minded backend and cloud engineer who likes clear service boundaries, observable workflows, and systems that can be operated after launch. My work is AI-aware without treating model output as magic, and I am interested in robotics and real-world infrastructure where software has to stay reliable under practical constraints."
-      )
-    ).toBeTruthy();
     expect(
       screen.getByRole("heading", {
-        name: "Build Production Confidence Into the Backend"
+        name: "Backend engineer focused on scale, reliability, and secure delivery."
       })
     ).toBeTruthy();
     expect(
       screen.getByText(
-        "For backend, cloud, automation, or AI-aware systems work, start with a focused project call or send the context by email."
+        "I am a Senior Backend Engineer based in Kolkata and Bangalore with 6+ years of experience building microservices, event-driven platforms, cloud-native applications, and production CI/CD systems. My strongest work is in Golang, Kafka, Redis, Kubernetes, Docker, Terraform, PostgreSQL, gRPC, and secure backend architecture. I like systems that are observable, maintainable, and ready for real operational pressure."
       )
     ).toBeTruthy();
-    expect(screen.getByRole("link", { name: "Discuss Backend Systems" })).toBeTruthy();
+    expect(
+      screen.getByRole("heading", {
+        name: "Need a backend engineer for production-scale systems?"
+      })
+    ).toBeTruthy();
+    expect(
+      screen.getByText(
+        "Reach out for Golang backend engineering, cloud-native services, event-driven platforms, infrastructure automation, or security-aware delivery work."
+      )
+    ).toBeTruthy();
+    expect(screen.getByRole("link", { name: "Discuss Backend Work" })).toBeTruthy();
     expect(
       screen
-        .getByRole("link", { name: "Decentralized Governance Platform" })
+        .getByRole("link", { name: "Fikrabot - Intelligent Document Verification Platform" })
         .getAttribute("href")
-    ).toBe("/projects/governance-platform");
+    ).toBe("/projects/fikrabot-document-verification");
     expect(
       screen
-        .getByRole("link", { name: "Robotics Control Backend Notes" })
+        .getByRole("link", { name: "Event-Driven Warehouse Messaging Lab" })
         .getAttribute("href")
-    ).toBe("/labs/robotics-control-notes");
+    ).toBe("/labs/event-driven-warehouse-messaging");
     expect(
       screen
-        .getByRole("link", { name: "Production AI Backend Integration" })
+        .getByRole("link", { name: "Secure Golang Backend Delivery" })
         .getAttribute("href")
-    ).toBe("/articles/ai-backend-systems");
+    ).toBe("/articles/secure-golang-delivery");
     expect(screen.queryByRole("heading", { name: "Testimonials" })).toBeNull();
     expect(screen.queryByRole("heading", { name: "Speaking & Open Source" })).toBeNull();
   });
@@ -106,11 +110,13 @@ describe("portfolio page routes", () => {
   });
 
   it("renders the home route directly at a clean deep link", () => {
-    renderRoute("/projects/governance-platform");
+    renderRoute("/projects/fikrabot-document-verification");
 
     expect(screen.queryByRole("heading", { name: "Page not found" })).toBeNull();
     expect(
-      screen.getByRole("heading", { name: "Decentralized Governance Platform" })
+      screen.getByRole("heading", {
+        name: "Fikrabot - Intelligent Document Verification Platform"
+      })
     ).toBeTruthy();
   });
 
@@ -171,7 +177,7 @@ describe("portfolio page routes", () => {
         settings={{
           name: "Shubha Banerjee",
           roleSummary: "Backend and cloud systems engineer",
-          heroHeadline: "Backend Systems for Teams That Need Production Confidence",
+          heroHeadline: "Large-scale backend systems, event platforms, and secure cloud-native infrastructure.",
           heroSubheadline: "CMS data can be partial.",
           primaryCta: { label: "Book a Project Call" },
           featuredMetrics: []
@@ -256,31 +262,31 @@ describe("portfolio page routes", () => {
   });
 
   it("renders a known project slug", () => {
-    renderRoute("/projects/governance-platform");
+    renderRoute("/projects/fikrabot-document-verification");
 
     expect(
       screen.getByRole("heading", {
-        name: "Decentralized Governance Platform"
+        name: "Fikrabot - Intelligent Document Verification Platform"
       })
     ).toBeTruthy();
   });
 
   it("renders a known article slug", () => {
-    renderRoute("/articles/ai-backend-systems");
+    renderRoute("/articles/secure-golang-delivery");
 
     expect(
       screen.getByRole("heading", {
-        name: "Production AI Backend Integration"
+        name: "Secure Golang Backend Delivery"
       })
     ).toBeTruthy();
   });
 
   it("renders a known lab slug", () => {
-    renderRoute("/labs/robotics-control-notes");
+    renderRoute("/labs/event-driven-warehouse-messaging");
 
     expect(
       screen.getByRole("heading", {
-        name: "Robotics Control Backend Notes"
+        name: "Event-Driven Warehouse Messaging Lab"
       })
     ).toBeTruthy();
   });

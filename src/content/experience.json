@@ -1,143 +1,160 @@
 {
   "items": [
     {
-      "role": "Senior Consultant - Blockchain & Backend",
-      "company": "Mercedes Benz",
-      "location": "Bangalore",
-      "startDate": "2023-10",
+      "role": "Senior Consultant",
+      "company": "IKEA (Capgemini)",
+      "location": "Bangalore, India",
+      "startDate": "2025-06",
       "endDate": "",
       "present": true,
-      "summary": "Backend and blockchain consulting across cloud-native services, storage integrations, CI/CD, and security hardening.",
+      "summary": "Leading backend development for a large-scale warehouse management platform supporting multiple distributed services.",
       "highlights": [
-        "Developed scalable microservices using Rust, Go and Kafka, improving system efficiency by 30%",
-        "Enhanced S3-compatible storage integration with 30% better data efficiency",
-        "Implemented secure CI/CD pipelines reducing deployment time by 50%",
-        "Optimized backend services with Go and Redis, boosting performance by 25%",
-        "Strengthened security protocols, reducing vulnerabilities by 50%"
+        "Designed and maintained event-driven microservices communicating through Google Pub/Sub and Azure Service Bus",
+        "Architected message routing mechanisms across heterogeneous messaging infrastructures",
+        "Led a backend team of 8 engineers across architecture decisions, sprint planning, code reviews, and delivery",
+        "Improved service reliability, scalability, and maintainability through clean architecture and distributed systems practices",
+        "Worked on large-scale data orchestration, validation pipelines, and service integration"
       ],
       "technologies": [
-        "Rust",
-        "Go",
-        "Kafka",
-        "Redis",
-        "S3-compatible storage",
-        "CI/CD"
+        "Golang",
+        "Kubernetes",
+        "Docker",
+        "PostgreSQL",
+        "Google Pub/Sub",
+        "Azure Service Bus",
+        "Terraform"
       ],
       "impactMetrics": [
         {
-          "value": "30%",
-          "label": "system efficiency improvement"
+          "value": "8",
+          "label": "engineers led"
         },
         {
-          "value": "50%",
-          "label": "deployment time reduction"
+          "value": "2",
+          "label": "messaging platforms integrated"
+        }
+      ]
+    },
+    {
+      "role": "Senior Consultant",
+      "company": "Mercedes-Benz Research & Development (Capgemini)",
+      "location": "Bangalore, India",
+      "startDate": "2023-10",
+      "endDate": "2025-05",
+      "present": false,
+      "summary": "Designed and developed backend services processing terabytes of manufacturing data weekly.",
+      "highlights": [
+        "Built scalable gRPC-based communication layers for internal distributed systems",
+        "Developed Kafka-driven event processing workflows for real-time service coordination",
+        "Improved backend throughput through Redis caching and performance optimization",
+        "Reduced deployment cycle time through Kubernetes, Docker, and Terraform automation",
+        "Integrated S3-compatible object storage systems to improve retrieval latency",
+        "Implemented secure CI/CD pipelines with BlackDuck security scanning and compliance enforcement",
+        "Achieved zero open compliance issues through proactive vulnerability remediation"
+      ],
+      "technologies": [
+        "Golang",
+        "Kafka",
+        "PostgreSQL",
+        "Redis",
+        "Kubernetes",
+        "Docker",
+        "Terraform",
+        "gRPC",
+        "BlackDuck"
+      ],
+      "impactMetrics": [
+        {
+          "value": "TB+",
+          "label": "manufacturing data processed weekly"
         },
         {
-          "value": "25%",
-          "label": "backend performance boost"
+          "value": "0",
+          "label": "open compliance issues"
         }
       ]
     },
     {
       "role": "Backend Developer",
       "company": "HDFC Bank",
-      "location": "Bangalore",
+      "location": "Bangalore, India",
       "startDate": "2022-08",
       "endDate": "2023-09",
       "present": false,
-      "summary": "Backend development for banking services with blockchain-based transaction verification, Core Banking API integrations, and Kubernetes delivery.",
+      "summary": "Re-architected and migrated critical Debit Card Services from Java to Golang.",
       "highlights": [
-        "Developed blockchain-based Debit Card service improving reliability by 40%",
-        "Integrated Core Banking APIs with external services reducing processing time by 25%",
-        "Implemented smart contracts for transaction verification and fraud prevention",
-        "Deployed services using Kubernetes, reducing deployment times by 50%",
-        "Conducted security audits with SonarCloud, reducing incidents by 30%"
+        "Developed highly available backend services supporting card lifecycle management",
+        "Built real-time event propagation mechanisms using Google Pub/Sub",
+        "Used Aerospike and Redis to optimize storage and reduce latency",
+        "Conducted regular security audits and vulnerability reviews, reducing incidents by 30%",
+        "Implemented infrastructure automation using Kubernetes and Terraform"
       ],
       "technologies": [
-        "Blockchain",
-        "Core Banking APIs",
-        "Smart contracts",
+        "Golang",
+        "Redis",
+        "Aerospike",
         "Kubernetes",
-        "SonarCloud"
+        "Terraform",
+        "Google Pub/Sub"
       ],
       "impactMetrics": [
         {
-          "value": "40%",
-          "label": "reliability improvement"
-        },
-        {
-          "value": "25%",
-          "label": "processing time reduction"
-        },
-        {
-          "value": "50%",
-          "label": "deployment time reduction"
+          "value": "30%",
+          "label": "security incident reduction"
         }
       ]
     },
     {
       "role": "Golang Developer",
       "company": "Logicloop",
-      "location": "Remote",
+      "location": "India",
       "startDate": "2022-02",
       "endDate": "2022-08",
       "present": false,
-      "summary": "Go backend development, authentication systems, observability, and CI/CD automation for distributed services.",
+      "summary": "Modernized legacy monolithic systems into distributed microservices.",
       "highlights": [
-        "Migrated backend services to Go, improving performance by 60%",
-        "Implemented blockchain-based authentication system",
-        "Set up observability with Grafana, reducing MTTD by 20%",
-        "Automated CI/CD pipelines, increasing deployment frequency by 15%"
+        "Increased system throughput through service decomposition and optimization",
+        "Implemented Kafka-based asynchronous communication patterns",
+        "Built gRPC service communication layers",
+        "Automated CI/CD workflows and increased deployment frequency",
+        "Improved observability using Grafana dashboards and monitoring systems"
       ],
       "technologies": [
-        "Go",
-        "Blockchain authentication",
+        "Golang",
+        "Kafka",
+        "gRPC",
+        "Docker",
         "Grafana",
         "CI/CD"
       ],
-      "impactMetrics": [
-        {
-          "value": "60%",
-          "label": "backend performance improvement"
-        },
-        {
-          "value": "20%",
-          "label": "MTTD reduction"
-        },
-        {
-          "value": "15%",
-          "label": "deployment frequency increase"
-        }
-      ]
+      "impactMetrics": []
     },
     {
       "role": "Full Stack Developer",
       "company": "CBNITS",
-      "location": "Kolkata",
-      "startDate": "2021-02",
+      "location": "Kolkata, India",
+      "startDate": "2020-02",
       "endDate": "2022-02",
       "present": false,
-      "summary": "Full stack product development across trading, consulting, REST APIs, GraphQL, Flutter, and smart contract payments.",
+      "summary": "Developed financial and healthcare platforms from the ground up, with backend APIs, banking integrations, and product engineering delivery.",
       "highlights": [
-        "Built eZTrade with blockchain integration for secure trading",
-        "Developed eZConsult using Go, GraphQL, and Flutter",
-        "Created REST APIs with Gin framework, reducing response time by 30%",
-        "Implemented smart contract-based payment system"
+        "Built backend APIs using Golang and Gin Framework",
+        "Integrated banking APIs and optimized transaction processing performance",
+        "Established CI/CD pipelines and engineering best practices",
+        "Mentored junior developers and conducted code reviews",
+        "Built Fikrabot document verification workflows and Medzimi healthcare platform services"
       ],
       "technologies": [
-        "Go",
-        "GraphQL",
-        "Flutter",
+        "Golang",
         "Gin",
-        "REST APIs",
-        "Smart contracts"
+        "PostgreSQL",
+        "Redis",
+        "Next.js",
+        "MeiliSearch",
+        "Bun",
+        "Hono"
       ],
-      "impactMetrics": [
-        {
-          "value": "30%",
-          "label": "response time reduction"
-        }
-      ]
+      "impactMetrics": []
     }
   ]
 }

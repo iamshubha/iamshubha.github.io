@@ -99,8 +99,8 @@ describe("portfolio content", () => {
   it("finds markdown content by slug", () => {
     const { projects } = getPortfolioContent();
 
-    expect(findBySlug(projects, "governance-platform")?.title).toBe(
-      "Decentralized Governance Platform"
+    expect(findBySlug(projects, "fikrabot-document-verification")?.title).toBe(
+      "Fikrabot - Intelligent Document Verification Platform"
     );
     expect(findBySlug(projects, "missing-slug")).toBeNull();
   });

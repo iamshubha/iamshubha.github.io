@@ -1,65 +1,65 @@
 {
   "items": [
     {
-      "slug": "backend-cloud-systems",
-      "title": "Backend & Cloud Systems",
-      "summary": "Production backend systems for teams that need scalable APIs, reliable workflows, and deployment confidence.",
+      "slug": "golang-backend-systems",
+      "title": "Golang Backend Systems",
+      "summary": "Design and delivery of production Go services, gRPC APIs, microservices, service boundaries, and backend platforms that can operate under real load.",
       "capabilities": [
-        "Go/Rust services",
-        "Kafka workflows",
-        "S3-compatible storage",
-        "Kubernetes deployments"
+        "Golang service architecture",
+        "gRPC and REST API design",
+        "Microservice decomposition",
+        "Redis and PostgreSQL optimization"
       ],
       "proofPoints": [
-        "30% efficiency gain",
-        "50% deployment reduction"
+        "Built services processing terabytes of manufacturing data weekly",
+        "Migrated critical Debit Card Services from Java to Golang"
       ],
       "cta": {
-        "label": "Discuss Backend Systems",
-        "url": "https://cal.com/iamshubha"
+        "label": "Discuss Backend Work",
+        "url": "mailto:shubhabanerjeewin8@gmail.com"
       },
       "relatedProjects": [
-        "governance-platform",
-        "defi-protocol"
+        "fikrabot-document-verification",
+        "medzimi-healthcare-platform"
       ]
     },
     {
-      "slug": "ai-enabled-engineering",
-      "title": "AI-Enabled Engineering",
-      "summary": "Backend foundations for AI-assisted products, internal tools, and production automation.",
+      "slug": "event-driven-platforms",
+      "title": "Event-Driven Platforms",
+      "summary": "Reliable asynchronous systems using Kafka, Google Pub/Sub, Azure Service Bus, routing mechanisms, validation pipelines, and real-time coordination.",
       "capabilities": [
-        "Automation workflows",
-        "AI-assisted internal tools",
-        "Data pipelines",
-        "Backend integration for model outputs"
+        "Kafka workflows",
+        "Google Pub/Sub event propagation",
+        "Azure Service Bus integration",
+        "Cross-platform message routing"
       ],
       "proofPoints": [
-        "Production-ready integration patterns",
-        "Operational workflows designed for maintainability"
+        "Architected routing across heterogeneous messaging infrastructures",
+        "Developed Kafka-driven workflows for real-time service coordination"
       ],
       "cta": {
-        "label": "Plan AI Integration",
-        "url": "https://cal.com/iamshubha"
+        "label": "Plan Event Systems",
+        "url": "mailto:shubhabanerjeewin8@gmail.com"
       },
       "relatedProjects": []
     },
     {
-      "slug": "robotics-ready-systems",
-      "title": "Robotics-Ready Systems",
-      "summary": "Backend and cloud systems that support robotics-adjacent telemetry, controls, and operations.",
+      "slug": "secure-cloud-delivery",
+      "title": "Secure Cloud Delivery",
+      "summary": "Kubernetes, Docker, Terraform, CI/CD, vulnerability scanning, compliance remediation, and security-aware backend delivery.",
       "capabilities": [
-        "Telemetry APIs",
-        "Event-driven control surfaces",
-        "Device data ingestion",
-        "Operational dashboards"
+        "Kubernetes delivery",
+        "Terraform automation",
+        "BlackDuck and SonarQube scanning",
+        "Secure CI/CD pipelines"
       ],
       "proofPoints": [
-        "Event-driven backend design",
-        "Reliable device-data foundations"
+        "Achieved zero open compliance issues in production delivery",
+        "Reduced security incidents by 30% through audits and vulnerability reviews"
       ],
       "cta": {
-        "label": "Explore Robotics Systems",
-        "url": "https://cal.com/iamshubha"
+        "label": "Review Delivery Pipeline",
+        "url": "mailto:shubhabanerjeewin8@gmail.com"
       },
       "relatedProjects": []
     }
