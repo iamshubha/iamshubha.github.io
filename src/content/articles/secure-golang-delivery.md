@@ -1,14 +1,14 @@
 ---
 slug: secure-golang-delivery
-title: Secure Golang Backend Delivery
-summary: Practical notes from building Go services with CI/CD, vulnerability scanning, compliance remediation, and production reliability in mind.
-category: Backend Security
+title: How I Approach Forward Deployed Backend Work
+summary: A practical note on taking ambiguous workflows and turning them into production Go services, event platforms, and secure delivery paths.
+category: Forward Deployed Engineering
 date: 2026-06-30
 draft: false
 ---
 
-Secure backend delivery is not a separate phase after implementation. In production Go services, security needs to show up in service boundaries, dependency review, CI/CD checks, infrastructure automation, and the way teams respond to findings.
+Forward deployed backend work starts before code. The first step is understanding the workflow: who uses the system, where the handoffs break, which events matter, and what the first reliable production version needs to do.
 
-My production work has included BlackDuck security scanning, SonarQube review, compliance remediation, Kubernetes delivery, Terraform automation, and repeated vulnerability review cycles. The goal is not only to pass a scan, but to keep services understandable enough that issues can be fixed quickly without destabilizing delivery.
+From there, I map the workflow into service boundaries, APIs, queues, storage, and deployment paths. My production work has used Golang, gRPC, Kafka, Google Pub/Sub, Azure Service Bus, Redis, PostgreSQL, Kubernetes, Docker, Terraform, BlackDuck, SonarQube, and CI/CD automation.
 
-For large backend platforms, the practical pattern is straightforward: build clear APIs, keep runtime configuration explicit, automate delivery, observe failures, and treat security findings as engineering work that belongs inside the normal delivery loop.
+The goal is not to build a clever prototype and walk away. The goal is a backend path that a team can operate: clear interfaces, visible failures, secure delivery checks, and enough structure to keep improving after the first version ships.

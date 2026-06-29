@@ -75,12 +75,12 @@ describe("portfolio page routes", () => {
     ).toBe("/projects/fikrabot-document-verification");
     expect(
       screen
-        .getByRole("link", { name: "Event-Driven Warehouse Messaging Lab" })
+        .getByRole("link", { name: "Event-Driven Implementation Notes for Operations Platforms" })
         .getAttribute("href")
     ).toBe("/labs/event-driven-warehouse-messaging");
     expect(
       screen
-        .getByRole("link", { name: "Secure Golang Backend Delivery" })
+        .getByRole("link", { name: "How I Approach Forward Deployed Backend Work" })
         .getAttribute("href")
     ).toBe("/articles/secure-golang-delivery");
     expect(screen.queryByRole("heading", { name: "Testimonials" })).toBeNull();
@@ -283,7 +283,7 @@ describe("portfolio page routes", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: "Secure Golang Backend Delivery"
+        name: "How I Approach Forward Deployed Backend Work"
       })
     ).toBeTruthy();
   });
@@ -293,7 +293,7 @@ describe("portfolio page routes", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: "Event-Driven Warehouse Messaging Lab"
+        name: "Event-Driven Implementation Notes for Operations Platforms"
       })
     ).toBeTruthy();
   });

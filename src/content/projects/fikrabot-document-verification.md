@@ -1,7 +1,7 @@
 ---
 slug: fikrabot-document-verification
 title: Fikrabot - Intelligent Document Verification Platform
-summary: Compliance-focused document verification platform with automated extraction, validation, anomaly detection, and fraud-oriented matching workflows.
+summary: Forward-deployed implementation proof: turned compliance document workflows into extraction, validation, anomaly detection, and fraud-oriented backend pipelines.
 context: Compliance and logistics workflows needed a platform that could validate documents across invoices, permits, shipment records, and related business artifacts.
 role: Full Stack Developer
 stack:
@@ -20,6 +20,6 @@ featured: true
 date: 2021-10-01
 ---
 
-Fikrabot was built as an intelligent document verification platform focused on compliance and validation workflows. I worked on scalable backend services and multi-stage pipelines that extracted, compared, and validated information across documents.
+The forward deployed work was understanding the operational workflow first: what documents had to be checked, where validation failed, and how teams could trust the result.
 
-The platform supported cross-document validation, anomaly detection, and fraud-oriented matching across invoices, permits, shipment documents, and related records. The work emphasized reliable backend flows, clear validation states, and multilingual document processing foundations.
+I worked on backend services and multi-stage pipelines that extracted, compared, and validated information across invoices, permits, shipment documents, and related records. The value was not a single feature; it was turning a compliance workflow into a system with clear states, repeatable validation, and reviewable output.

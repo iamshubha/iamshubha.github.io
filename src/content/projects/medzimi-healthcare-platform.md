@@ -1,7 +1,7 @@
 ---
 slug: medzimi-healthcare-platform
 title: Medzimi - Healthcare Ecosystem Platform
-summary: Healthcare platform serving patients, doctors, pharmacies, and laboratories with scalable backend services and search infrastructure.
+summary: Forward-deployed implementation proof: translated multi-participant healthcare workflows into platform services, search infrastructure, and extensible backend foundations.
 context: Healthcare workflows needed a unified platform that could support multiple participants, reliable service operations, and extensible backend foundations.
 role: Full Stack Developer
 stack:
@@ -20,6 +20,6 @@ featured: true
 date: 2021-06-01
 ---
 
-Medzimi was a healthcare ecosystem platform serving patients, doctors, pharmacies, and laboratories. I worked on backend services, search infrastructure, and architecture foundations that allowed the platform to support multiple healthcare workflows.
+The forward deployed problem was coordination: patients, doctors, pharmacies, and laboratories each needed different workflows, but the backend had to keep the platform coherent.
 
-The implementation included scalable service design, high-availability considerations, and AI-assisted document processing and recommendation workflows. The system was designed to remain extensible as more healthcare services and user journeys were added.
+I worked on backend services, search infrastructure, and architecture foundations that could support multiple healthcare journeys. The implementation emphasized extensibility, reliable service boundaries, and AI-assisted document and recommendation workflows where they fit the operational need.
