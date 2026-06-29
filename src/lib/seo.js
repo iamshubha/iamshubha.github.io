@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import settings from "../content/settings.json";
 
 export const SITE_URL = "https://iamshubha.github.io";
-const DEFAULT_IMAGE = `${SITE_URL}/logo512.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/logo.svg`;
 const JSONLD_ID = "seo-jsonld";
 
 export function absoluteUrl(path = "/") {
@@ -124,6 +124,7 @@ export function personSchema({ skills = [] } = {}) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${SITE_URL}/#person`,
     name: settings.name,
     jobTitle: settings.roleSummary,
     description: settings.seoDescription,
@@ -131,7 +132,35 @@ export function personSchema({ skills = [] } = {}) {
     image: DEFAULT_IMAGE,
     email: settings.email ? `mailto:${settings.email}` : undefined,
     sameAs: [settings.githubUrl, settings.linkedinUrl].filter(Boolean),
-    knowsAbout: knowsAbout.length ? knowsAbout : undefined
+    knowsAbout: knowsAbout.length
+      ? [
+          "Forward Deployed Engineering",
+          "AI-native engineering",
+          "Applied AI implementation",
+          "Golang backend systems",
+          "Event-driven architecture",
+          "Kubernetes",
+          "Terraform",
+          "Secure cloud delivery",
+          ...knowsAbout
+        ]
+      : undefined,
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Forward Deployed Backend Engineer",
+      skills: [
+        "Workflow discovery",
+        "Applied AI implementation",
+        "Golang",
+        "Microservices",
+        "Kafka",
+        "Google Pub/Sub",
+        "Azure Service Bus",
+        "Kubernetes",
+        "Terraform",
+        "Security reviews"
+      ]
+    }
   };
 }
 
@@ -139,9 +168,14 @@ export function websiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
     name: settings.name,
     url: SITE_URL,
-    description: settings.seoDescription
+    description: settings.seoDescription,
+    inLanguage: "en",
+    publisher: {
+      "@id": `${SITE_URL}/#person`
+    }
   };
 }
 
@@ -170,8 +204,16 @@ export function creativeWorkSchema({ type, title, description, path, date }) {
     image: DEFAULT_IMAGE,
     author: {
       "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
       name: settings.name,
       url: SITE_URL
-    }
+    },
+    publisher: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: settings.name,
+      url: SITE_URL
+    },
+    inLanguage: "en"
   };
 }

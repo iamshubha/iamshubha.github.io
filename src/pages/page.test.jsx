@@ -288,6 +288,16 @@ describe("portfolio page routes", () => {
     ).toBeTruthy();
   });
 
+  it("renders the AI-native engineer article slug", () => {
+    renderRoute("/articles/ai-native-forward-deployed-engineer");
+
+    expect(
+      screen.getByRole("heading", {
+        name: "AI-Native Forward Deployed Engineering"
+      })
+    ).toBeTruthy();
+  });
+
   it("renders a known lab slug", () => {
     renderRoute("/labs/event-driven-warehouse-messaging");
 
