@@ -56,7 +56,7 @@ describe("portfolio content", () => {
     expect(content.resumes.length).toBeGreaterThanOrEqual(3);
     expect(content.services.length).toBeGreaterThanOrEqual(3);
     expect(content.experience.length).toBeGreaterThanOrEqual(4);
-    expect(content.skills.length).toBeGreaterThanOrEqual(6);
+    expect(content.skills.length).toBeGreaterThanOrEqual(5);
     expect(Array.isArray(content.testimonials)).toBe(true);
     expect(content.certifications.length).toBeGreaterThanOrEqual(1);
     expect(Array.isArray(content.speaking)).toBe(true);

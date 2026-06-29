@@ -1,50 +1,48 @@
 {
   "items": [
     {
-      "groupName": "Languages & Backend",
+      "groupName": "Discover & Shape",
       "skills": [
-        "Golang",
-        "TypeScript",
-        "Rust",
-        "Dart",
-        "Node.js",
-        "Gin",
-        "gRPC",
-        "REST APIs",
-        "Microservices"
+        "Workflow mapping",
+        "Technical discovery",
+        "Implementation planning",
+        "Delivery leadership",
+        "Code reviews",
+        "Sprint planning"
       ],
       "priority": 1
     },
     {
-      "groupName": "Databases & Storage",
+      "groupName": "Build",
       "skills": [
+        "Golang",
+        "gRPC",
+        "REST APIs",
+        "Microservices",
         "PostgreSQL",
-        "MongoDB",
         "Redis",
         "Aerospike",
-        "Firebase",
-        "S3-compatible storage",
-        "MeiliSearch"
+        "Gin"
       ],
       "priority": 2
     },
     {
-      "groupName": "Messaging & Event Systems",
+      "groupName": "Connect",
       "skills": [
         "Apache Kafka",
         "Google Pub/Sub",
         "Azure Service Bus",
-        "Event-driven architecture",
         "Message routing",
-        "Real-time event processing"
+        "Event-driven architecture",
+        "Real-time processing"
       ],
       "priority": 3
     },
     {
-      "groupName": "Cloud & Infrastructure",
+      "groupName": "Deploy",
       "skills": [
-        "Docker",
         "Kubernetes",
+        "Docker",
         "Terraform",
         "GitHub Actions",
         "AWS",
@@ -55,30 +53,17 @@
       "priority": 4
     },
     {
-      "groupName": "Security & Compliance",
+      "groupName": "Operate & Secure",
       "skills": [
-        "Secure coding",
-        "Vulnerability scanning",
         "BlackDuck",
         "SonarQube",
+        "Grafana",
+        "Observability",
         "Compliance remediation",
-        "Security audits",
-        "Infrastructure security"
+        "Vulnerability reviews",
+        "Security audits"
       ],
       "priority": 5
-    },
-    {
-      "groupName": "Operations & Interests",
-      "skills": [
-        "Observability",
-        "Grafana",
-        "Reliability engineering",
-        "Networking",
-        "Cybersecurity",
-        "Large-scale distributed architecture",
-        "Robotics-ready infrastructure"
-      ],
-      "priority": 6
     }
   ]
 }

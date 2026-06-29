@@ -1,21 +1,21 @@
 {
   "items": [
     {
-      "slug": "golang-backend-systems",
-      "title": "Golang Backend Systems",
-      "summary": "Design and delivery of production Go services, gRPC APIs, microservices, service boundaries, and backend platforms that can operate under real load.",
+      "slug": "workflow-to-deployment",
+      "title": "Turn messy workflows into deployed systems",
+      "summary": "I work from operational context to backend design: clarify the workflow, identify service boundaries, and ship the first reliable version.",
       "capabilities": [
-        "Golang service architecture",
-        "gRPC and REST API design",
-        "Microservice decomposition",
-        "Redis and PostgreSQL optimization"
+        "Workflow discovery with users and delivery teams",
+        "Service boundary and API planning",
+        "Implementation plans for ambiguous systems",
+        "Operational rollout thinking"
       ],
       "proofPoints": [
-        "Built services processing terabytes of manufacturing data weekly",
-        "Migrated critical Debit Card Services from Java to Golang"
+        "Supported warehouse management workflows at IKEA",
+        "Built platforms across healthcare, compliance, and document verification"
       ],
       "cta": {
-        "label": "Discuss Backend Work",
+        "label": "Send a Workflow Problem",
         "url": "mailto:shubhabanerjeewin8@gmail.com"
       },
       "relatedProjects": [
@@ -24,41 +24,41 @@
       ]
     },
     {
-      "slug": "event-driven-platforms",
-      "title": "Event-Driven Platforms",
-      "summary": "Reliable asynchronous systems using Kafka, Google Pub/Sub, Azure Service Bus, routing mechanisms, validation pipelines, and real-time coordination.",
+      "slug": "backend-event-platforms",
+      "title": "Build production backend and event platforms",
+      "summary": "I build Go services, gRPC APIs, message routing, and event-driven workflows for systems that need to move data reliably.",
       "capabilities": [
-        "Kafka workflows",
-        "Google Pub/Sub event propagation",
-        "Azure Service Bus integration",
-        "Cross-platform message routing"
+        "Golang services",
+        "gRPC and REST APIs",
+        "Kafka, Google Pub/Sub, and Azure Service Bus",
+        "PostgreSQL, Redis, and Aerospike"
       ],
       "proofPoints": [
-        "Architected routing across heterogeneous messaging infrastructures",
-        "Developed Kafka-driven workflows for real-time service coordination"
+        "Built services processing terabytes of manufacturing data weekly",
+        "Designed event-driven microservices across heterogeneous messaging systems"
       ],
       "cta": {
-        "label": "Plan Event Systems",
+        "label": "Discuss Event Platforms",
         "url": "mailto:shubhabanerjeewin8@gmail.com"
       },
       "relatedProjects": []
     },
     {
-      "slug": "secure-cloud-delivery",
-      "title": "Secure Cloud Delivery",
-      "summary": "Kubernetes, Docker, Terraform, CI/CD, vulnerability scanning, compliance remediation, and security-aware backend delivery.",
+      "slug": "secure-operable-delivery",
+      "title": "Make delivery secure and operable",
+      "summary": "I help teams ship backend systems with deployment automation, vulnerability scanning, compliance remediation, and observability in the loop.",
       "capabilities": [
-        "Kubernetes delivery",
-        "Terraform automation",
+        "Kubernetes, Docker, and Terraform",
+        "GitHub Actions and CI/CD pipelines",
         "BlackDuck and SonarQube scanning",
-        "Secure CI/CD pipelines"
+        "Grafana and operational visibility"
       ],
       "proofPoints": [
-        "Achieved zero open compliance issues in production delivery",
+        "Achieved zero open compliance issues in enterprise delivery",
         "Reduced security incidents by 30% through audits and vulnerability reviews"
       ],
       "cta": {
-        "label": "Review Delivery Pipeline",
+        "label": "Review Delivery Risk",
         "url": "mailto:shubhabanerjeewin8@gmail.com"
       },
       "relatedProjects": []

@@ -60,6 +60,8 @@ describe("portfolio page routes", () => {
         "Send the workflow, system context, or role brief. I can talk through how I would discover the problem, design the backend path, and ship the first reliable version."
       )
     ).toBeTruthy();
+    expect(screen.getByRole("link", { name: "Send a Workflow Problem" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Discover & Shape" })).toBeTruthy();
     expect(
       screen.getAllByRole("link", { name: "Talk Through a Deployment Problem" }).length
     ).toBeGreaterThanOrEqual(1);
