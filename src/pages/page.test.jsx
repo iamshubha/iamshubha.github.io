@@ -30,7 +30,7 @@ describe("portfolio page routes", () => {
     ).toBeTruthy();
     expect(
       screen.getByRole("heading", {
-        name: "Large-scale backend systems, event platforms, and secure cloud-native infrastructure."
+        name: "Forward deployed backend engineer for AI, data, and operations-heavy products."
       })
     ).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Services" })).toBeTruthy();
@@ -42,25 +42,30 @@ describe("portfolio page routes", () => {
     expect(screen.getByRole("heading", { name: "Public Proof" })).toBeTruthy();
     expect(
       screen.getByRole("heading", {
-        name: "Backend engineer focused on scale, reliability, and secure delivery."
+        name: "I turn ambiguous operational problems into shipped backend systems."
       })
     ).toBeTruthy();
     expect(
       screen.getByText(
-        "I am a Senior Backend Engineer based in Kolkata and Bangalore with 6+ years of experience building microservices, event-driven platforms, cloud-native applications, and production CI/CD systems. My strongest work is in Golang, Kafka, Redis, Kubernetes, Docker, Terraform, PostgreSQL, gRPC, and secure backend architecture. I like systems that are observable, maintainable, and ready for real operational pressure."
+        "I am a backend engineer with 6+ years of experience building Golang services, event-driven platforms, and secure cloud infrastructure for enterprise systems. My strongest work sits where forward deployed engineering sits: understanding messy workflows, shaping the backend path, and shipping reliable systems with delivery teams."
       )
     ).toBeTruthy();
     expect(
       screen.getByRole("heading", {
-        name: "Need a backend engineer for production-scale systems?"
+        name: "Have an ambiguous deployment problem?"
       })
     ).toBeTruthy();
     expect(
       screen.getByText(
-        "Reach out for Golang backend engineering, cloud-native services, event-driven platforms, infrastructure automation, or security-aware delivery work."
+        "Send the workflow, system context, or role brief. I can talk through how I would discover the problem, design the backend path, and ship the first reliable version."
       )
     ).toBeTruthy();
-    expect(screen.getByRole("link", { name: "Discuss Backend Work" })).toBeTruthy();
+    expect(
+      screen.getAllByRole("link", { name: "Talk Through a Deployment Problem" }).length
+    ).toBeGreaterThanOrEqual(1);
+    expect(
+      screen.getByRole("link", { name: "View Implementation Proof" }).getAttribute("href")
+    ).toBe("#work");
     expect(
       screen
         .getByRole("link", { name: "Fikrabot - Intelligent Document Verification Platform" })

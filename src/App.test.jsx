@@ -20,10 +20,10 @@ describe("App", () => {
     render(<App />);
 
     expect(document.title).toBe(
-      "Shubha Banerjee | Senior Backend Engineer | Golang",
+      "Shubha Banerjee | Forward Deployed Backend Engineer",
     );
     expect(document.querySelector('meta[name="description"]')?.content).toBe(
-      "Senior Backend Engineer with 6+ years of experience in Golang, microservices, Kafka, Redis, Kubernetes, Terraform, PostgreSQL, cloud infrastructure, and secure backend systems.",
+      "Forward deployed backend engineer for AI, data, and operations-heavy products, with 6+ years building Golang services, event platforms, cloud infrastructure, and secure enterprise systems.",
     );
     expect(document.querySelector('meta[name="theme-color"]')?.content).toBe(
       "#201f1d",
