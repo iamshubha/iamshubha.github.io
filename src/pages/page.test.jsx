@@ -77,12 +77,12 @@ describe("portfolio page routes", () => {
       screen
         .getByRole("link", { name: "Event-Driven Implementation Notes for Operations Platforms" })
         .getAttribute("href")
-    ).toBe("/labs/event-driven-warehouse-messaging");
+    ).toBe("/labs/event-driven-warehouse-messaging/");
     expect(
       screen
         .getByRole("link", { name: "How I Approach Forward Deployed Backend Work" })
         .getAttribute("href")
-    ).toBe("/articles/secure-golang-delivery");
+    ).toBe("/articles/secure-golang-delivery/");
     expect(screen.queryByRole("heading", { name: "Testimonials" })).toBeNull();
     expect(screen.queryByRole("heading", { name: "Speaking & Open Source" })).toBeNull();
   });

@@ -44,7 +44,7 @@ function collectUrls() {
       const date = frontmatterField(raw, "date");
 
       urls.push({
-        loc: `${SITE_URL}${prefix}/${slug}`,
+        loc: `${SITE_URL}${prefix}/${slug}/`,
         lastmod: date && /^\d{4}-\d{2}-\d{2}/.test(date) ? date.slice(0, 10) : null,
         priority: "0.8"
       });

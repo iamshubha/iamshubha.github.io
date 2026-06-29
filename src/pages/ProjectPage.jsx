@@ -27,7 +27,7 @@ export default function ProjectPage() {
   const { slug } = useParams();
   const { projects, settings } = getPortfolioContent();
   const project = findBySlug(projects, slug);
-  const path = `/projects/${slug}`;
+  const path = `/projects/${slug}/`;
 
   useSeo(
     project

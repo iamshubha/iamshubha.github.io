@@ -122,7 +122,7 @@ export default function HomePage() {
           title="Labs"
           summary="Implementation notes from operations-heavy backend systems, event platforms, and delivery work."
           items={labs}
-          hrefForItem={(item) => `/labs/${item.slug}`}
+          hrefForItem={(item) => `/labs/${item.slug}/`}
         />
         <PreviewRail
           id="writing"
@@ -130,7 +130,7 @@ export default function HomePage() {
           title="Writing"
           summary="Practical writing on forward deployed backend work, production systems, and operational tradeoffs."
           items={articles}
-          hrefForItem={(item) => `/articles/${item.slug}`}
+          hrefForItem={(item) => `/articles/${item.slug}/`}
         />
         <Testimonials testimonials={testimonials} />
         <PublicProof certifications={certifications} speaking={speaking} />

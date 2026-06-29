@@ -27,9 +27,9 @@ const locs = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => mat
 const routes = locs.map(routePathFromLoc).filter(Boolean);
 
 for (const route of routes) {
-  const routePath = join(distDir, route);
-  mkdirSync(dirname(routePath), { recursive: true });
-  copyFileSync(indexPath, routePath);
+  const routeDir = join(distDir, route);
+  mkdirSync(routeDir, { recursive: true });
+  copyFileSync(indexPath, join(routeDir, "index.html"));
 }
 
-console.log(`route fallbacks generated for ${routes.length} clean URLs`);
+console.log(`route fallbacks generated for ${routes.length} clean trailing-slash URLs`);

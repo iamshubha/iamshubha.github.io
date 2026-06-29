@@ -39,7 +39,7 @@ export default function ArticlePage() {
   const { slug } = useParams();
   const { articles, settings } = getPortfolioContent();
   const article = findBySlug(articles, slug);
-  const path = `/articles/${slug}`;
+  const path = `/articles/${slug}/`;
   const dateStr = article ? formatFactValue(article.date) : undefined;
 
   useSeo(

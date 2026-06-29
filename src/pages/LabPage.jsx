@@ -31,7 +31,7 @@ export default function LabPage() {
   const { slug } = useParams();
   const { labs, settings } = getPortfolioContent();
   const lab = findBySlug(labs, slug);
-  const path = `/labs/${slug}`;
+  const path = `/labs/${slug}/`;
 
   useSeo(
     lab
