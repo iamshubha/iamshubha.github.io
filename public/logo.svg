@@ -1,24 +1,32 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Shubha Banerjee logo</title>
-  <desc id="desc">A circuit-inspired SB monogram for backend systems engineering.</desc>
-  <rect width="512" height="512" rx="72" fill="#F4EFE3"/>
-  <path d="M56 104H456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <path d="M56 408H456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <path d="M104 56V456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <path d="M408 56V456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <path d="M154 160H278C324.392 160 354 185.444 354 224C354 262.556 324.392 288 278 288H154V160Z" fill="#F4EFE3" stroke="#1F211F" stroke-width="22" stroke-linejoin="round"/>
-  <path d="M154 224H294C340.392 224 370 249.444 370 288C370 326.556 340.392 352 294 352H154V224Z" fill="#F4EFE3" stroke="#1F211F" stroke-width="22" stroke-linejoin="round"/>
-  <path d="M154 160V352" stroke="#C94E2C" stroke-width="26" stroke-linecap="square"/>
-  <path d="M205 224H304" stroke="#C94E2C" stroke-width="18" stroke-linecap="square"/>
-  <path d="M205 288H320" stroke="#C94E2C" stroke-width="18" stroke-linecap="square"/>
-  <path d="M304 224H392" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <path d="M320 288H392" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <path d="M120 224H76" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <path d="M120 288H76" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
-  <rect x="64" y="212" width="24" height="24" fill="#C94E2C" stroke="#1F211F" stroke-width="8"/>
-  <rect x="64" y="276" width="24" height="24" fill="#C94E2C" stroke="#1F211F" stroke-width="8"/>
-  <rect x="388" y="212" width="24" height="24" fill="#F4EFE3" stroke="#1F211F" stroke-width="8"/>
-  <rect x="388" y="276" width="24" height="24" fill="#F4EFE3" stroke="#1F211F" stroke-width="8"/>
-  <circle cx="256" cy="104" r="18" fill="#C94E2C" stroke="#1F211F" stroke-width="10"/>
-  <circle cx="256" cy="408" r="18" fill="#C94E2C" stroke="#1F211F" stroke-width="10"/>
+  <desc id="desc">A premium geometric SB monogram with backend infrastructure traces.</desc>
+  <rect width="512" height="512" rx="92" fill="#F5EFE2"/>
+  <path d="M80 112H432" stroke="#20221F" stroke-width="10" stroke-linecap="round" opacity=".18"/>
+  <path d="M80 400H432" stroke="#20221F" stroke-width="10" stroke-linecap="round" opacity=".18"/>
+  <path d="M112 80V432" stroke="#20221F" stroke-width="10" stroke-linecap="round" opacity=".18"/>
+  <path d="M400 80V432" stroke="#20221F" stroke-width="10" stroke-linecap="round" opacity=".18"/>
+
+  <path d="M150 148H285C324.765 148 354 171.071 354 204C354 236.929 324.765 260 285 260H150V148Z" fill="#F5EFE2" stroke="#20221F" stroke-width="24" stroke-linejoin="round"/>
+  <path d="M150 252H304C343.765 252 373 275.071 373 308C373 340.929 343.765 364 304 364H150V252Z" fill="#F5EFE2" stroke="#20221F" stroke-width="24" stroke-linejoin="round"/>
+
+  <path d="M150 148V364" stroke="#C94E2C" stroke-width="34" stroke-linecap="square"/>
+  <path d="M210 204H286" stroke="#C94E2C" stroke-width="20" stroke-linecap="square"/>
+  <path d="M210 308H304" stroke="#C94E2C" stroke-width="20" stroke-linecap="square"/>
+  <path d="M210 256H332" stroke="#20221F" stroke-width="18" stroke-linecap="square"/>
+
+  <path d="M286 204H424" stroke="#20221F" stroke-width="12" stroke-linecap="round"/>
+  <path d="M304 308H424" stroke="#20221F" stroke-width="12" stroke-linecap="round"/>
+  <path d="M88 204H150" stroke="#20221F" stroke-width="12" stroke-linecap="round"/>
+  <path d="M88 308H150" stroke="#20221F" stroke-width="12" stroke-linecap="round"/>
+
+  <circle cx="424" cy="204" r="18" fill="#F5EFE2" stroke="#20221F" stroke-width="10"/>
+  <circle cx="424" cy="308" r="18" fill="#C94E2C" stroke="#20221F" stroke-width="10"/>
+  <circle cx="88" cy="204" r="18" fill="#C94E2C" stroke="#20221F" stroke-width="10"/>
+  <circle cx="88" cy="308" r="18" fill="#F5EFE2" stroke="#20221F" stroke-width="10"/>
+
+  <path d="M256 72V120" stroke="#C94E2C" stroke-width="14" stroke-linecap="round"/>
+  <path d="M256 392V440" stroke="#C94E2C" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="256" cy="72" r="14" fill="#20221F"/>
+  <circle cx="256" cy="440" r="14" fill="#20221F"/>
 </svg>
