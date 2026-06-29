@@ -54,6 +54,14 @@ function ProfileCard({ profile }) {
 
   return (
     <aside className="hero__card" aria-label="Experience at a glance">
+      <div className="hero__instrument" aria-hidden="true">
+        <span className="hero__instrument-node hero__instrument-node--one" />
+        <span className="hero__instrument-node hero__instrument-node--two" />
+        <span className="hero__instrument-node hero__instrument-node--three" />
+        <span className="hero__instrument-line hero__instrument-line--one" />
+        <span className="hero__instrument-line hero__instrument-line--two" />
+        <span className="hero__instrument-line hero__instrument-line--three" />
+      </div>
       {years ? (
         <div className="hero__card-highlight">
           <span className="hero__card-number">{years}+</span>
@@ -65,7 +73,7 @@ function ProfileCard({ profile }) {
 
       {companies.length ? (
         <div className="hero__card-block">
-          <p className="hero__card-label">Trusted with work for</p>
+          <p className="hero__card-label">Production environments</p>
           <ul className="hero__card-companies">
             {companies.map((company) => (
               <li key={company}>{company}</li>
@@ -86,7 +94,7 @@ export default function Hero({ settings, profile }) {
       <div className="hero__content">
         <p className="hero__status">
           <span className="hero__status-dot" aria-hidden="true" />
-          Available for new projects
+          AI systems / backend / robotics-ready infrastructure
         </p>
         <p className="hero__role">{settings.roleSummary}</p>
         <h1 id="hero-title" className="hero__name">
