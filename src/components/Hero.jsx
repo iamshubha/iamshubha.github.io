@@ -94,7 +94,7 @@ export default function Hero({ settings, profile }) {
       <div className="hero__content">
         <p className="hero__status">
           <span className="hero__status-dot" aria-hidden="true" />
-          AI systems / backend / robotics-ready infrastructure
+          Forward deployed systems / AI product implementation / backend delivery
         </p>
         <p className="hero__role">{settings.roleSummary}</p>
         <h1 id="hero-title" className="hero__name">

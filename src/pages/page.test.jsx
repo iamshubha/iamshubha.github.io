@@ -184,7 +184,7 @@ describe("portfolio page routes", () => {
         settings={{
           name: "Shubha Banerjee",
           roleSummary: "Backend and cloud systems engineer",
-          heroHeadline: "Large-scale backend systems, event platforms, and secure cloud-native infrastructure.",
+          heroHeadline: "Forward deployed backend engineer for AI, data, and operations-heavy products.",
           heroSubheadline: "CMS data can be partial.",
           primaryCta: { label: "Book a Project Call" },
           featuredMetrics: []

@@ -120,7 +120,7 @@ export default function HomePage() {
           id="labs"
           eyebrow="Labs"
           title="Labs"
-          summary="Current notes and experiments around backend systems, automation, and robotics-ready infrastructure."
+          summary="Implementation notes from operations-heavy backend systems, event platforms, and delivery work."
           items={labs}
           hrefForItem={(item) => `/labs/${item.slug}`}
         />
@@ -128,7 +128,7 @@ export default function HomePage() {
           id="writing"
           eyebrow="Writing"
           title="Writing"
-          summary="Practical writing on production backend engineering, AI-aware systems, and operational tradeoffs."
+          summary="Practical writing on forward deployed backend work, production systems, and operational tradeoffs."
           items={articles}
           hrefForItem={(item) => `/articles/${item.slug}`}
         />
