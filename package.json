@@ -16,7 +16,7 @@
     "start": "vite",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "prebuild": "node scripts/generate-sitemap.mjs",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-route-fallbacks.mjs",
     "preview": "vite preview",
     "test": "vitest run --environment jsdom",
     "test:watch": "vitest --environment jsdom",
