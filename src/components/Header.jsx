@@ -3,16 +3,6 @@ import { Link } from "react-router-dom";
 
 import { useScrollSpy } from "../lib/hooks.js";
 
-function initials(name = "") {
-  const parts = name.trim().split(/\s+/).filter(Boolean);
-
-  if (!parts.length) {
-    return "·";
-  }
-
-  return (parts[0][0] + (parts[1]?.[0] || "")).toUpperCase();
-}
-
 function ScrollProgress() {
   useEffect(() => {
     const bar = document.getElementById("scroll-progress");
@@ -51,7 +41,7 @@ export default function Header({ navItems = [], settings }) {
       <header className="site-header">
         <Link className="site-header__brand" to="/">
           <span className="site-header__mark" aria-hidden="true">
-            {initials(settings?.name)}
+            <img src="/logo.svg" alt="" />
           </span>
           <span className="site-header__name">{settings?.name || "Home"}</span>
         </Link>

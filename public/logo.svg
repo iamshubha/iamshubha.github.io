@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Shubha Banerjee logo</title>
+  <desc id="desc">A circuit-inspired SB monogram for backend systems engineering.</desc>
+  <rect width="512" height="512" rx="72" fill="#F4EFE3"/>
+  <path d="M56 104H456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <path d="M56 408H456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <path d="M104 56V456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <path d="M408 56V456" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <path d="M154 160H278C324.392 160 354 185.444 354 224C354 262.556 324.392 288 278 288H154V160Z" fill="#F4EFE3" stroke="#1F211F" stroke-width="22" stroke-linejoin="round"/>
+  <path d="M154 224H294C340.392 224 370 249.444 370 288C370 326.556 340.392 352 294 352H154V224Z" fill="#F4EFE3" stroke="#1F211F" stroke-width="22" stroke-linejoin="round"/>
+  <path d="M154 160V352" stroke="#C94E2C" stroke-width="26" stroke-linecap="square"/>
+  <path d="M205 224H304" stroke="#C94E2C" stroke-width="18" stroke-linecap="square"/>
+  <path d="M205 288H320" stroke="#C94E2C" stroke-width="18" stroke-linecap="square"/>
+  <path d="M304 224H392" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <path d="M320 288H392" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <path d="M120 224H76" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <path d="M120 288H76" stroke="#1F211F" stroke-width="12" stroke-linecap="square"/>
+  <rect x="64" y="212" width="24" height="24" fill="#C94E2C" stroke="#1F211F" stroke-width="8"/>
+  <rect x="64" y="276" width="24" height="24" fill="#C94E2C" stroke="#1F211F" stroke-width="8"/>
+  <rect x="388" y="212" width="24" height="24" fill="#F4EFE3" stroke="#1F211F" stroke-width="8"/>
+  <rect x="388" y="276" width="24" height="24" fill="#F4EFE3" stroke="#1F211F" stroke-width="8"/>
+  <circle cx="256" cy="104" r="18" fill="#C94E2C" stroke="#1F211F" stroke-width="10"/>
+  <circle cx="256" cy="408" r="18" fill="#C94E2C" stroke="#1F211F" stroke-width="10"/>
+</svg>
