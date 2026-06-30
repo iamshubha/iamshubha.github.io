@@ -11,6 +11,7 @@ import Hero from "../components/Hero.jsx";
 import PreviewRail from "../components/PreviewRail.jsx";
 import ProofStrip from "../components/ProofStrip.jsx";
 import PublicProof from "../components/PublicProof.jsx";
+import RoleFit from "../components/RoleFit.jsx";
 import Services from "../components/Services.jsx";
 import SkillMatrix from "../components/SkillMatrix.jsx";
 import Testimonials from "../components/Testimonials.jsx";
@@ -20,6 +21,9 @@ import { personSchema, useSeo, websiteSchema } from "../lib/seo.js";
 
 export function getHomeNavItems({ articles, labs, projects, services, settings }) {
   return [
+    settings?.roleFit?.title && settings?.roleFit?.signals?.length
+      ? { id: "fit", label: "Fit" }
+      : null,
     services?.length ? { id: "services", label: "Services" } : null,
     projects?.some((project) => project.featured) ? { id: "work", label: "Work" } : null,
     labs?.length ? { id: "labs", label: "Labs" } : null,
@@ -112,6 +116,7 @@ export default function HomePage() {
       <main id="main" className="home-page site-shell">
         <Hero settings={settings} profile={profile} />
         <ProofStrip metrics={settings.featuredMetrics} />
+        <RoleFit roleFit={settings.roleFit} />
         <Services services={services} />
         <FeaturedProjects projects={projects} />
         <ExperienceTimeline experience={experience} />

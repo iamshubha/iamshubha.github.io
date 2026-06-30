@@ -8,6 +8,7 @@ import FinalCta from "../components/FinalCta.jsx";
 import Footer from "../components/Footer.jsx";
 import Hero from "../components/Hero.jsx";
 import PreviewRail from "../components/PreviewRail.jsx";
+import RoleFit from "../components/RoleFit.jsx";
 import SkillMatrix from "../components/SkillMatrix.jsx";
 import { getPortfolioContent } from "../lib/content.js";
 import { getHomeNavItems } from "./HomePage.jsx";
@@ -31,6 +32,11 @@ describe("portfolio page routes", () => {
     expect(
       screen.getByRole("heading", {
         name: "Forward deployed backend engineer for AI, data, and operations-heavy products."
+      })
+    ).toBeTruthy();
+    expect(
+      screen.getByRole("heading", {
+        name: "Why I fit forward deployed and AI-native engineering roles"
       })
     ).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Services" })).toBeTruthy();
@@ -72,7 +78,7 @@ describe("portfolio page routes", () => {
       screen
         .getByRole("link", { name: "Fikrabot - Intelligent Document Verification Platform" })
         .getAttribute("href")
-    ).toBe("/projects/fikrabot-document-verification");
+    ).toBe("/projects/fikrabot-document-verification/");
     expect(
       screen
         .getByRole("link", { name: "Event-Driven Implementation Notes for Operations Platforms" })
@@ -91,6 +97,7 @@ describe("portfolio page routes", () => {
     renderRoute("/");
 
     const sectionTargets = {
+      Fit: "fit",
       Services: "services",
       Work: "work",
       Labs: "labs",
@@ -131,6 +138,7 @@ describe("portfolio page routes", () => {
     const content = getPortfolioContent();
 
     expect(getHomeNavItems(content)).toEqual([
+      { id: "fit", label: "Fit" },
       { id: "services", label: "Services" },
       { id: "work", label: "Work" },
       { id: "labs", label: "Labs" },
@@ -146,7 +154,10 @@ describe("portfolio page routes", () => {
         projects: [],
         services: []
       })
-    ).toEqual([{ id: "contact", label: "Contact" }]);
+    ).toEqual([
+      { id: "fit", label: "Fit" },
+      { id: "contact", label: "Contact" }
+    ]);
 
     expect(
       getHomeNavItems({
@@ -176,6 +187,12 @@ describe("portfolio page routes", () => {
     expect(screen.getByRole("link", { name: "Partial Project" })).toBeTruthy();
     expect(screen.queryByText("Role")).toBeNull();
     expect(screen.queryByText("Stack")).toBeNull();
+  });
+
+  it("renders no role fit section when CMS data is incomplete", () => {
+    render(<RoleFit roleFit={{ title: "Hiring Fit", signals: [] }} />);
+
+    expect(screen.queryByRole("heading", { name: "Hiring Fit" })).toBeNull();
   });
 
   it("renders hero when CTA arrays are missing or incomplete", () => {

@@ -108,6 +108,30 @@ collections:
             widget: list
             summary: "{{fields.value}} {{fields.label}}"
             fields: *metricFields
+          - label: Role Fit
+            name: roleFit
+            widget: object
+            fields:
+              - label: Eyebrow
+                name: eyebrow
+                widget: string
+              - label: Title
+                name: title
+                widget: string
+              - label: Body
+                name: body
+                widget: text
+              - label: Signals
+                name: signals
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - label: Title
+                    name: title
+                    widget: string
+                  - label: Body
+                    name: body
+                    widget: text
           - label: About
             name: about
             widget: object

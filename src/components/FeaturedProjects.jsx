@@ -19,7 +19,7 @@ export default function FeaturedProjects({ projects = [] }) {
           return (
             <article className="project-card" key={project.slug}>
               <h3>
-                <Link to={`/projects/${project.slug}`}>{project.title}</Link>
+                <Link to={`/projects/${project.slug}/`}>{project.title}</Link>
               </h3>
               <p>{project.summary}</p>
               {hasFacts && (

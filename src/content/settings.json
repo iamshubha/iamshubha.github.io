@@ -37,6 +37,29 @@
       "label": "warehouse, manufacturing, banking, healthcare"
     }
   ],
+  "roleFit": {
+    "eyebrow": "Hiring Fit",
+    "title": "Why I fit forward deployed and AI-native engineering roles",
+    "body": "I am strongest in the gap between a user problem and a production system: mapping the workflow, choosing the right backend and AI boundary, and staying close through rollout.",
+    "signals": [
+      {
+        "title": "Customer-close discovery",
+        "body": "I can work with operators, product teams, and delivery leads to understand how the work actually happens before designing the system."
+      },
+      {
+        "title": "AI with production judgment",
+        "body": "I treat AI as part of a workflow, not a demo: validation, handoff states, permissions, fallbacks, and measurable operational value matter."
+      },
+      {
+        "title": "Backend depth for messy systems",
+        "body": "Golang, gRPC, Kafka, Google Pub/Sub, Azure Service Bus, Redis, PostgreSQL, Kubernetes, Docker, Terraform, and CI/CD are already part of my delivery base."
+      },
+      {
+        "title": "Enterprise delivery trust",
+        "body": "I have shipped in warehouse, manufacturing, banking, healthcare, compliance, and document-processing environments where reliability and security matter."
+      }
+    ]
+  },
   "about": {
     "eyebrow": "About",
     "title": "I turn ambiguous operational problems into shipped backend systems.",
